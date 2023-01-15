@@ -116,6 +116,11 @@ String gend;
             employee=new Employee(n,lastname,firstname,gender.charAt(0),
                     birthdate,mail,picture,username,password,type);
 
+            if(birthdate==null) {
+                birthdate = (new Day()).getDate();
+                employee.setBirthdate(birthdate);
+            }
+
             registerCode=employee.isValid();
 
 

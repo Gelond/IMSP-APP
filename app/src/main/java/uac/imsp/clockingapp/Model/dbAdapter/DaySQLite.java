@@ -112,7 +112,7 @@ public class DaySQLite extends SQLiteOpenHelper {
 
 
         statement= db.compileStatement(planning);
-        byte[] workDays= new byte[]{'T','T','T','T','T','F','T'};
+        byte[] workDays= new byte[]{'T','T','T','T','T','F','F'};
 
 
         //08-17

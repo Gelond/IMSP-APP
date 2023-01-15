@@ -233,7 +233,7 @@ public class Employee implements IEmployee {
         return CurrentStatus;
     }
 /***Check if an employee has valid properties
- * @return an error code if ther is awrong property and 0 otherwise */
+ * @return an error code if there is a wrong property and 0 otherwise */
     @Override
     public int isValid() {
         if(TextUtils.isEmpty(""+RegistrationNumber))
@@ -248,8 +248,8 @@ public class Employee implements IEmployee {
             return EMPTY_FIRSTNAME;
         else if (hasInvalidFirstname())
             return INVALID_FIRSTNAME;
-        else if(TextUtils.isEmpty(Birthdate))
-            return EMPTY_BIRTHDATE;
+        /*else if(TextUtils.isEmpty(Birthdate))
+            return EMPTY_BIRTHDATE;*/
         else if (TextUtils.isEmpty(MailAddress))
             return EMPTY_MAIL;
         else if(hasInvalidEmail())
