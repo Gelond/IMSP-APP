@@ -326,7 +326,8 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         Cursor cursor;
 
 
-        query = "SELECT nom,prenom,sexe,photo,type,couriel,username,birthdate,jours_de_travail," +
+        query = "SELECT nom,prenom,sexe,photo,type,couriel,username,birthdate," +
+                "jours_de_travail," +
                 "est_admin" +
                 " FROM employe JOIN planning ON id_planning=id_planning_ref WHERE matricule=?";
         selectArgs = new String[]{

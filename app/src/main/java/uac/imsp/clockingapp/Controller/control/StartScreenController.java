@@ -120,7 +120,7 @@ public class StartScreenController  implements IStartScreenController {
         DayManager dayManager=new DayManager((Context) startScreenView);
         dayManager.open();
         dayManager.create(day);
-        dayManager.close();
+
 
 
 
@@ -140,8 +140,12 @@ public class StartScreenController  implements IStartScreenController {
             Day d=new Day(lastUpdate);
 
             while(d.getDate().compareTo(day.getDate()) <=0) {
-                for (Employee employee : employees) {
+                dayManager.create(d);
 
+                for (Employee employee : employees) {
+                    employeeManager.retrieveAddDate(employee);
+                    if(employee.getAddDate().compareTo(d.getDate())>0)
+                        continue;
                     if (employeeManager.shouldNotWorkThatDay(employee, d))
                         status = "Hors service";
                     else
@@ -155,5 +159,7 @@ public class StartScreenController  implements IStartScreenController {
 
         employeeManager.updateVariable();
         employeeManager.close();
+        dayManager.close();
     }
-}}
+}
+}

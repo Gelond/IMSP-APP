@@ -38,13 +38,16 @@ public class DayManager {
 
     public void create(Day day){
         int id=search(day);
-        String query;
-        SQLiteStatement statement;
-        query="INSERT INTO jour(date_jour) VALUES (?)";
+
         if(id==-1) {
+            String query;
+            SQLiteStatement statement;
+            query="INSERT INTO jour(date_jour) VALUES (?)";
             statement = Database.compileStatement(query);
             statement.bindString(1, day.getDate());
             statement.executeInsert();
+           id= search(day);
+           assert id!=-1;
             day.setId(id);
 
         }

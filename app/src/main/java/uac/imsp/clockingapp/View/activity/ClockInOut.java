@@ -131,6 +131,8 @@ public class ClockInOut extends AppCompatActivity
                 if (barcodes.size() != 0) {
                     txtBarcodeValue.post(() -> {
                         intentData = barcodes.valueAt(0).displayValue;
+                        stopCameraAndDetector();
+
                         txtBarcodeValue.setText(intentData);
 
                         try {
@@ -144,11 +146,23 @@ public class ClockInOut extends AppCompatActivity
                         clockInOutPresenter.onClocking(Number);
 
 
+
                     });
                 }
             }
         });
     }
+
+    private void stopCameraAndDetector() {
+        try {
+            cameraSource.stop();
+        } catch (Exception e) {
+            // Handle exceptions here
+        }
+
+        barcodeDetector.release();
+    }
+
 
 
     private void initViews() {
@@ -267,54 +281,8 @@ public void retrieveSharedPreferences(){
     @Override
     public void onLoad() {
        new ToastMessage(this, getString(R.string.clocking_text));
-        // initialise detectors and sources
-
-     /* initBarCodeDetector();
-      switchCamera();
-      initSurfaceView();*/
-
 
     }
-    /* void initBarCodeDetector(){
-        barcodeDetector = new BarcodeDetector.Builder(this)
-                .setBarcodeFormats(Barcode.QR_CODE)
-                .build();
-
-        barcodeDetector.setProcessor(new Detector.Processor<Barcode>()
-        {
-            @Override
-            public void release() {
-                new  ToastMessage(getApplicationContext(),
-                        "To prevent memory leaks barcode scanner has been stopped");
-
-            }
-
-            @Override
-            public void receiveDetections(@NonNull Detector.Detections<Barcode> detections) {
-
-
-                final SparseArray<Barcode> barcodes = detections.getDetectedItems();
-
-                if (barcodes.size() != 0) {
-                    //@Override
-                    txtBarcodeValue.post(() -> {
-
-
-                        intentData = barcodes.valueAt(0).displayValue;
-                        txtBarcodeValue.setText(intentData);
-
-
-                    });
-
-                }
-
-
-
-            }
-        });
-
-       // switchCamera();
-    }*/
 
     public void onClockInSuccessful() {
       new ToastMessage(getApplicationContext(),getString(R.string.enter_pointed));

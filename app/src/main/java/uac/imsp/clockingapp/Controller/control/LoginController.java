@@ -47,9 +47,9 @@ public class LoginController  implements ILoginController {
       username="User10";
       password="Aab10%";
 
-       // Construction d'un employé voulant se connecter
+       // Construction of an employee who wanna login
         Employee employee = new Employee(username,password);
-       // employee=new Employee("User10","Aab10%");
+
 
 
          loginCode=employee.validUser();
@@ -73,11 +73,9 @@ public class LoginController  implements ILoginController {
 
 
             if (loginCode == CAN_NOT_LOGIN) {
-                //loginView.onLoginError("Username ou mot de passe incorrect !");
                 loginView.onLoginError(4);
                 attempNumber++;
                 if (attempNumber == 3)
-                    //loginView.onMaxAttempsReached("Trois tentatives d'authentification échouées !");
                     loginView.onMaxAttempsReached();
 
 
@@ -92,7 +90,7 @@ public class LoginController  implements ILoginController {
                     loginView.onSimpleEmployeeLogin();
 
 
-                loginView.askWish();
+                //loginView.askWish();
 
 
             }

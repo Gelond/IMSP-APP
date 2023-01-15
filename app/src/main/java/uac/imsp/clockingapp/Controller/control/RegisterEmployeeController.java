@@ -81,8 +81,10 @@ public class RegisterEmployeeController implements IRegisterEmployeeController
 
     @Override
     public void onRegisterEmployee(String number, String lastname,
-                                   String firstname, String gender, String birthdate, String mail,
-                                   String username, String password, String passwordConfirm,
+                                   String firstname, String gender, String birthdate,
+                                   String mail,
+                                   String username, String password,
+                                   String passwordConfirm,
                                    String selectedService, int startTime, int endTime,
                                    byte[] picture, String type, @NonNull byte[] workdays,boolean isAdmin) {
         int nb_workdays=0;

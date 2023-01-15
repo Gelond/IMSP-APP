@@ -76,8 +76,6 @@ public class RegisterEmployee extends AppCompatActivity
 
     boolean editUsername,generatePassword,notice,showPassword;
      CheckBox monday,tuesday,wednesday,thursday,friday,satursday,sunday;
-     //private Button workManager;
-
     CheckBox[] myTable=new CheckBox[7];
     byte[] days=new byte[7];
 

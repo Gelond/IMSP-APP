@@ -112,7 +112,7 @@ public class DaySQLite extends SQLiteOpenHelper {
 
 
         statement= db.compileStatement(planning);
-        byte[] workDays= new byte[]{'T','T','T','T','T','F','F'};
+        byte[] workDays= new byte[]{'T','T','T','T','T','F','T'};
 
 
         //08-17
@@ -195,8 +195,6 @@ public class DaySQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        //db.execSQL(CREATE_DAY);
         createDatabase(db);
     }
 

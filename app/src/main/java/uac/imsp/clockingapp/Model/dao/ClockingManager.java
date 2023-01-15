@@ -138,7 +138,7 @@ public class ClockingManager {
         statement.executeUpdateDelete();
 
      employee.setCurrentStatus("Sortie");
-        query="UPDATE employee SET statut=? WHERE matricule=?";
+        query="UPDATE employe SET statut=? WHERE matricule=?";
         statement=Database.compileStatement(query);
         statement.bindString(1,employee.getCurrentStatus());
         statement.bindLong(2,employee.getRegistrationNumber());
@@ -179,7 +179,7 @@ int id=day.getId(),n;
         n=cursor.getCount();
         out=cursor.getString(0);
         cursor.close();
-        return n == 0 || out.equals("");
+        return n == 0 ||out==null/*|| out.equals("")*/;
     }
 
 
