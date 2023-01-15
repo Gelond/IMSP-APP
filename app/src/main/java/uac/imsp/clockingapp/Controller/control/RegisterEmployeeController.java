@@ -229,7 +229,7 @@ String gend;
                DayManager dayManager=new DayManager(context);
                dayManager.open();
                dayManager.create(day);
-               employeeManager.setDayAttendance(finalEmployee,
+               employeeManager.initDayAttendance(finalEmployee,
                        employeeManager.shouldNotWorkToday(finalEmployee)
                        ? "Hors service":"Absent",day);
 

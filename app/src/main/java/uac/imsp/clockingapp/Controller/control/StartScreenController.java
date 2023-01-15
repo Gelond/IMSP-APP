@@ -146,7 +146,7 @@ public class StartScreenController  implements IStartScreenController {
                         status = "Hors service";
                     else
                         status = "Absent";
-                    employeeManager.setDayAttendance(employee, status, day);
+                    employeeManager.initDayAttendance(employee, status, day);
                 }
                 d=d.addADay();
             }

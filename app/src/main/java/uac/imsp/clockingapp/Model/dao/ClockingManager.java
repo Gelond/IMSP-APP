@@ -136,6 +136,7 @@ public class ClockingManager {
         statement.bindLong(2, employee.getRegistrationNumber());
         statement.bindLong(3, id);
         statement.executeUpdateDelete();
+
      employee.setCurrentStatus("Sortie");
         query="UPDATE employee SET statut=? WHERE matricule=?";
         statement=Database.compileStatement(query);
@@ -156,6 +157,7 @@ public class ClockingManager {
                 String.valueOf(day.getId()),
         };
         Cursor cursor = Database.rawQuery(query, selectArgs);
+        cursor.moveToFirst();
 
           n=cursor.getCount();
           cursor.close();
@@ -167,14 +169,15 @@ public class ClockingManager {
     public boolean hasNotClockedOut(@NonNull Employee employee, @NonNull Day day) {
         String out;
 int id=day.getId(),n;
-        String query = "SELECT heure_sortie FROM pointage WHERE matricule_ref=? AND id_jour_ref=?";
+        String query = "SELECT heure_sortie FROM pointage WHERE " +
+                "matricule_ref=? AND id_jour_ref=?";
         String[] selectArgs = {
                 String.valueOf(employee.getRegistrationNumber()),String.valueOf(id)
         };
         Cursor cursor = Database.rawQuery(query, selectArgs);
         cursor.moveToFirst();
         n=cursor.getCount();
-        out=cursor.getString(3);
+        out=cursor.getString(0);
         cursor.close();
         return n == 0 || out.equals("");
     }

@@ -582,8 +582,8 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
 
 
-    public void setDayAttendance(@NonNull Employee employee, String status,
-                                 @NonNull Day day){
+    public void initDayAttendance(@NonNull Employee employee, String status,
+                                  @NonNull Day day){
         SQLiteStatement statement;
         String query;
         employee.setCurrentStatus(status);
