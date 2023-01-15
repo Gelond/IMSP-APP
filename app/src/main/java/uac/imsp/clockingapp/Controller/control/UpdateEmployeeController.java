@@ -3,7 +3,6 @@ package uac.imsp.clockingapp.Controller.control;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Patterns;
 
@@ -13,7 +12,6 @@ import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 import java.util.Objects;
 
-import dao.ClockingManager;
 import dao.EmployeeManager;
 import dao.PlanningManager;
 import dao.ServiceManager;
@@ -172,7 +170,7 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
                 employeeManager.open();
                 employeeManager.update(employee,planning);
 
-          Runnable      runnable= () -> {
+          /*Runnable      runnable= () -> {
                     ClockingManager clockingManager = new ClockingManager(context);
                     Day day = new Day();
 
@@ -185,14 +183,13 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
               if (clockingManager.hasNotClockedIn(employee, day))
 
 
-                  employeeManager.setDayAttendance(employee, status, day);
+                    employeeManager.setDayAttendance(employee, status, day);
 
               else
-                        clockingManager.updateDailyAttendance(employee,status);
-
-                    clockingManager.close();
+                  clockingManager.updateDailyAttendance(employee,status);
+               clockingManager.close();
                 };
-                AsyncTask.execute(runnable);
+                AsyncTask.execute(runnable);*/
                 updateEmployeeView.onSomethingchanged();
 
             }

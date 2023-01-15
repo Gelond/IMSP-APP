@@ -270,7 +270,8 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
             employeeSet.add(employee);
         }
         cursor.close();
-        return employeeSet.toArray(new Employee[employeeSet.size()]);
+
+        return  employeeSet.toArray(new Employee[0]);
 
     }
 
@@ -508,18 +509,6 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         return table;
     }
 
-    public boolean isNotSuperUser(@NonNull Employee employee) {
-        boolean test;
-        String query = "SELECT type FROM employe WHERE matricule=?";
-        String[] selectArgs = new String[]{String.valueOf(employee.getRegistrationNumber())};
-        Cursor cursor = Database.rawQuery(query, selectArgs);
-        test = cursor.moveToFirst() && !Objects.equals(cursor.getString(0), "Simple");
-        cursor.close();
-        return !test;
-
-
-    }
-
     public String getMd5(@NonNull String password) {
 
         try {
@@ -590,11 +579,13 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         statement.executeUpdateDelete();
 
     }
+
+
+
     public void setDayAttendance(@NonNull Employee employee, String status,
                                  @NonNull Day day){
         SQLiteStatement statement;
         String query;
-
         employee.setCurrentStatus(status);
         updateCurrentAttendance(employee,status);
          query="INSERT INTO pointage (matricule_ref,date_jour,statut,id_jour_ref)" +
