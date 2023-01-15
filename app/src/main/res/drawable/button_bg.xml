@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#ffef4444" />
+            <stroke android:width="@dimen/bt_stroke" android:color="#ff992f2f" />
+            <corners android:radius="@dimen/widget_radius" />
+            <padding android:left="@dimen/one_step" android:top="@dimen/one_step" android:right="@dimen/one_step" android:bottom="@dimen/one_step" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/buzzer_default_color" />
+            <stroke android:width="@dimen/bt_stroke" android:color="@color/buzzer_default_color" />
+            <corners android:radius="@dimen/widget_radius" />
+            <padding android:left="@dimen/one_step" android:top="@dimen/one_step" android:right="@dimen/one_step" android:bottom="@dimen/one_step" />
+        </shape>
+    </item>
+</selector>

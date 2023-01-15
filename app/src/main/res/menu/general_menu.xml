@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:gravity="end"
+
+    android:layoutDirection="rtl"
+    android:layout_gravity="end"
+
+
+    >
+    <item
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_baseline_settings_20"
+        android:gravity="start"
+        android:layout_gravity="start"
+        />
+
+    <item
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        android:id="@+id/logout"
+        android:title="@string/exit"
+        android:icon="@drawable/log_out"
+        android:gravity="end"
+        android:layout_gravity="end"
+        />
+    <!--item
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:id="@+id/dash"
+        android:title="@string/welcome_"
+
+        android:icon="@drawable/ic_baseline_dashboard_20"
+        android:gravity="start"
+        android:layout_gravity="start"
+ >
+
+
+    </item-->
+
+</menu>

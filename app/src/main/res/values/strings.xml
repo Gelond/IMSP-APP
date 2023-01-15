@@ -1,0 +1,345 @@
+<resources>
+
+    <string name="app_name" translatable="false">ClockingApp</string>
+
+    <string name="form_title">Formulaire d\'enregistrement des employés</string>
+    <string name="registration_title">Veillez saisir les informations de l\'employé</string>
+    <string name="register_button">Enregistrer</string>
+    <string name="register_name_hint">Nom</string>
+    <string name="register_lastname_text">Nom</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Mot de passe</string>
+    <string name="copied">Copié</string>
+
+    <string name="simple_login">Connection effectuée</string>
+
+
+    <string-array name="months">
+        <item>Janvier</item>
+        <item>Février</item>
+        <item>Mars</item>
+        <item>Avril</item>
+        <item>Mai</item>
+        <item>Juin</item>
+        <item>Juillet</item>
+        <item>Août</item>
+        <item>Septembre</item>
+        <item>Octobre</item>
+        <item>Novembre</item>
+        <item>Décembre</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Nombre de présence(s) par service</item>
+        <item>Nombre d\'absence(s) par service</item>
+        <item>Nombre de retard(s) par service</item>
+    </string-array>
+    <string name="male">Masculin</string>
+
+    <string name="female">Féminin</string>
+    <string name="Email">Email</string>
+    <string name="register_username_text">Username</string>
+
+    <string name="register_password">Mot de passe</string>
+    <string name="register_password_confirm">Confirmer le mot de passe</string>
+    <string name="reset_button">Annuler</string>
+    <string name="birthdate">Date de naissance</string>
+    <string name="register_picture">Ajouter une photo</string>
+    <string name="login_password_text">Mot de passe</string>
+    <string name="login_username_text">Username</string>
+    <string name="login">Identifiez vous</string>
+    <string name="login_button_text">S\'authentifier</string>
+    <string name="menu_delete_button">Supprimer  employé</string>
+    <string name="menu_update_button">Modifier  employé</string>
+    <string name="menu_search_button">Rechercher  employé</string>
+    <string name="menu_report_employee_button">Consulter états de présence </string>
+    <string name="menu_statistics">Consulter statistiques</string>
+    <string name="menu_clock_button">Pointer</string>
+    <string name="suppression_d_employ">Suppression d\'employé</string>
+    <string name="matricule">Matricule</string>
+    <string name="nom">Nom</string>
+    <string name="delete_button">Supprimer</string>
+
+    <string name="nom_">Nom</string>
+    <string name="register_firstname_text">Prénom(s)</string>
+
+    <string name="sexe">Sexe</string>
+    <string name="sexe_i">Sexe</string>
+    <string name="date_de_naissance">Date de naissance</string>
+    <string name="date_de_naissance_">Date de naissance</string>
+    <string name="service">Service</string>
+    <string name="service_">Service</string>
+    <string name="heure_de_d_but">Heure de début</string>
+    <string name="heure_de_fin">Heure de fin</string>
+    <string name="modifier">Modifier</string>
+    <string name="actualiser">Actualiser</string>
+    <string name="img">img</string>
+    <string name="update_button">Modifier</string>
+
+    <string name="update_picture">Changer la photo</string>
+
+    <string name="LAUNCH_URL">LAUNCH URL</string>
+    <string name="consult_stat">Statistiques par service</string>
+
+    <string name="register_employe_type_text">Type d\'employé</string>
+    <string name="register_mail_address_text">Adresse email</string>
+    <string name="register_service_label">Service</string>
+    <string name="end_time">Heure de fin</string>
+    <string name="start_time">Heure de début</string>
+    <string name="register_planning_label">Planning de travail quotidien</string>
+    <string name="logout">Déconnexion</string>
+    <string name="welcome">Bienvenu</string>
+    <string name="name">Nom et prénom</string>
+    <string name="presence">Etat de présence</string>
+    <string name="statistics">Statistiques</string>
+    <string name="delete">Supprimer</string>
+    <string name="update">Modifier</string>
+
+    <string name="clocking_text">Pointer</string>
+    <string name="search_status">Statut</string>
+    <string name="welcomes">Bienvenue sur ClockingApp, une application permettant
+        de suivre la présence des employés</string>
+    <string name="todo">TODO</string>
+    <string name="tod">TODO</string>
+    <string name="more">Plus</string>
+    <string name="noting_changed">Aucune information modifiée</string>
+    <string name="quit">Quitter</string>
+    <string name="update_succcessful">Employé modifié avec succès</string>
+    <string name="welcome_">Accueil</string>
+    <string name="param_tres">Paramètres</string>
+    <string name="old_password">Ancien mot de passe</string>
+    <string name="confirm_new_password">Confirmer le nouveau mot de passe</string>
+    <string name="new_password">Nouveau mot de passe</string>
+    <string name="modify">Modifier</string>
+    <string name="manage_services">Gérer les services</string>
+    <string name="save_fingerprint">Enreisterer des empreintes</string>
+    <string name="notification_title">Notification de mise à jour d\'employé</string>
+    <string name="notification">Certaines de vos informations ont été modifiées</string>
+
+    <string-array name="employee_types">
+        <item>Simple</item>
+        <item>Directeur</item>
+        <item>Chef personnel</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+        <item>Dimanche</item>
+
+    </string-array>
+    <string-array name="actions">
+        <item>Modifier</item>
+        <item>Supprimer</item>
+        <item>Etat de présence</item>
+        <item>Statistiques de présence</item>
+
+    </string-array>
+    <string-array name="languages">
+        <item>Anglais</item>
+        <item>Français</item>
+
+    </string-array>
+    <string name="start">dr</string>
+    <string name="add_employee">Ajouter employé</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="date" translatable="false">date</string>
+    <string name="work_days">Jours de travail</string>
+
+    <string name="monday">Lundi</string>
+    <string name="tuesday">Mardi</string>
+    <string name="thursday">Jeudi</string>
+    <string name="friday">Vendredi</string>
+    <string name="satursday">Samedi</string>
+    <string name="sunday">Dimanche</string>
+    <string name="wednesday">Mercredi</string>
+    <string name="general_menu_register">Enregisterer employé</string>
+    <string name="general_menu_employee_list">Liste des employés</string>
+    <string name="menu_presence_report">Etats de présence</string>
+    <string name="menu_statistics_by_employee">Statistiques par employé</string>
+    <string name="search_number">Matricule</string>
+    <string name="reg_number">Matricule</string>
+    <string name="attendance_gesture">Geste de pointage</string>
+    <string name="qr_code_scan">Scannage de Code QR</string>
+    <string name="fingerprint_scan">Scannage d\'empreintes digitales</string>
+    <string name="period">01 Janvier 1970</string>
+    <string name="previous">Précédent</string>
+    <string name="next">Suivant</string>
+    <string name="dark">Mode sombre</string>
+    <string name="languages">Langues</string>
+    <string name="report_problem">Signaler un problème</string>
+    <string name="help">De l\'aide\?</string>
+    <string name="more_parameters">Autres</string>
+    <string name="set">Paramètres de compte et de notification employé</string>
+    <string name="description">Description</string>
+    <string name="picture">Photo</string>
+    <string name="about_est">A propos de l\'établissement</string>
+    <string name="size">size</string>
+    <string name="clear_cache">Effacer le cache</string>
+    <string name="user_guide">Guide utilisateurs</string>
+    <string name="app_version">Version de l\'application</string>
+    <string name="share_via_qr">Partager l\'application via code QR</string>
+    <string name="details">Aperçu détaillé de l\'application</string>
+    <string name="share_app">Patager l\'application</string>
+    <string name="about_app">A propos de l\'application</string>
+    <string name="manage_username">Gestion de nom d\'utilisateur</string>
+    <string name="during_add">Lors d\'un ajout d\'employé</string>
+    <string name="mail_as_username">Utiliser l\'email comme username</string>
+    <string name="generate_username">Générer le username</string>
+    <string name="edit_username">Editer le username</string>
+    <string name="manage_password">Gestion du mot de passe</string>
+    <string name="during_emp_add">Lors d\'un ajout d\'employé</string>
+    <string name="generate_password">Générer le mot de passe</string>
+    <string name="show_password">Afficher le mot de passe</string>
+    <string name="emp_not">Notifications employé</string>
+    <string name="during_delete">Lors de la suppression</string>
+    <string name="during_update">Lors de la modification</string>
+    <string name="no_service">Aucun service enregistré. Appuyez sur le bouton pour en ajouter</string>
+    <string name="add">Ajouter</string>
+    <string name="succces">Email modifié avec succès!</string>
+    <string name="overview">Apperçu général</string>
+    <string name="version">Version de l\'application:</string>
+    <string name="device_name">Nom de l\'appareil:</string>
+    <string name="device_manufacturer">Fabricant de l\'appareil:</string>
+    <string name="version_name">Nom de version du système d\'exploitation:</string>
+    <string name="sdk_version">Version de SDK du système d\'exploitation</string>
+    <string name="copy">Copier</string>
+    <string name="desc">Pour partager l\'application, scannez ce code QR en utilisant un autre appareil</string>
+    <string name="share">Partager</string>
+    <string name="fingerprint">Scannez votre empreinte pour marquer votre entrée ou sortie</string>
+    <string name="confirm_login">Voulez-vous connecter en tant qu\'administrateur?</string>
+    <string name="confirm_login_title">Choix du type de connexion</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="required">Requis \!</string>
+    <string name="at_least">Au moins 6 caractères requis  \!</string>
+    <string name="at_most">Au plus 30 caractères requis \!</string>
+    <string name="notify_admin_login">Vous êtes connecté en tant qu\'administrateur \!</string>
+    <string name="notify_simple_login">Vous êtes connecté en tant que simple employé  \!</string>
+    <string name="all__fields_required">Tousles champs sont requis  \!</string>
+    <string name="invalid_password">Mot de passe invalide  \!</string>
+    <string name="incorrect_password">Mot de passe incorrect  \!</string>
+    <string name="chech_and_retry">Vérifiez le mot de passe précédent et reessayez  \!</string>
+    <string name="password_changed_successfully">Mot de passe changé avec succès</string>
+    <string name="employee_not_found">Employé non retrouvé</string>
+    <string name="should_not_work_today">Vous n\'êtes pas censé travailler aujourd\'hui</string>
+    <string name="enter_pointed">Entrée marquée avec succès</string>
+    <string name="out_pointed">Sortie marquée avec succès</string>
+    <string name="in_out_already_marked">Vous avez déjà marqué votre entrée-sortie de la journée</string>
+    <string name="no_service_available">Aucun service n\'a été enregistré</string>
+    <string name="delete_confirmation">Confirmation de suppression</string>
+    <string name="delete_confirmation_message">Voulez vous vraiment supprimer l\'employé \?</string>
+    <string name="notify_delete_sucessfull">Employé supprimé avec succès</string>
+    <string name="exit_confirmation">Confirmation de sortie</string>
+    <string name="cancel_confirmation_title">Confirmation d\'annulation des modifications</string>
+    <string name="cancel_confirmation_message">Voulez-vous annuler ces modifications?</string>
+    <string name="exit_confirmation_message">Voulez vous vraiment quitter l\'application\?</string>
+    <string name="cancel">Annuler</string>
+    <string name="number_required">Matricule requis \!</string>
+    <string name="last_name_required">Nom requis \!</string>
+    <string name="firstname_required">Prénom(s) requis \!</string>
+    <string name="mail_required">Adresse mail requise \!</string>
+    <string name="username_required">Username requis \!</string>
+    <string name="password_required">Mot de passe requis \!</string>
+    <string name="number_invalid">Matricule invalide \!</string>
+    <string name="last_name_invalid">Nom invalide \!</string>
+    <string name="firstname_invalid">Prénom(s) invalide(s) \!</string>
+    <string name="mail_invalid">Adresse mail invalide !</string>
+    <string name="username_invalid">Username invalide \!</string>
+    <string name="password_invalid">Mot de passe invalide \!</string>
+    <string name="no_workday_choosen">Aucun jour de travail choisi</string>
+    <string name="number_already_assigned">Ce matricule a été déjà attribué à un employé \!</string>
+
+    <string name="mail_already_assigned">Cette adresse mail a été déjà attribué à un employé \!</string>
+    <string name="username_already_assigned">Ce nom d\'utilisateur a été déjà attribué à un employé \!</string>
+    <string name="account_informations">Informations de compte employé</string>
+    <string name="registration_successful">Employé enregistré avec succès</string>
+    <string name="no_employee">Aucun employé \correspondant \!</string>
+    <string name="select_option">Séléctionnez une option</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="confirmation_update">Voulez vous vraiment appliquer ces modifications \?</string>
+    <string name="no_update">Aucune information n\'a été modifiée</string>
+    <string name="from">Du </string>
+    <string name="to">au </string>
+    <string name="label">Statistiques de présence pour employé</string>
+
+    <string-array name="current_status">
+        <item>Présent(e)</item>
+        <item>Absent(e)</item>
+        <item>Retard</item>
+        <item>Hors service</item>
+        <item>Sorti(e)</item>
+    </string-array>
+    <string name="subject_registration">Informations de compte employé</string>
+    <string name="has_been">, vous avez été enregistré en tant qu\'employé.\nConsultez ci-dessous
+     les informations de votre compte.\n Username: </string>
+    <string name="pass">Mot de passe: </string>
+    <string name="qr">Recevez également en pièce jointe votre code QR.\n
+        Il vous permettra d\'enregistrer vos entrées et sorties.</string>
+    <string name="id" translatable="false">Id</string>
+    <string name="apply">Appliquer</string>
+
+    <string name="service_invalid">Nom de service invalide</string>
+    <string name="service_already_exists">Ce service existe déjà</string>
+    <string name="notify_service_added">Service ajouté avec succès</string>
+
+    <string name="service_deleted">Service supprimé avec succès</string>
+    <string name="no_such_service">Ce  service n\'existe pas</string>
+    <string name="confirm_delete_service">Supprimer le service</string>
+    <string name="delete_not_possible">Ce service ne peut pas etre supprimé
+    car au moins un employé y est enregistré</string>
+    <string name="confirm_update_service_title">Confirmation de modification</string>
+    <string name="confirm_update_service">Vouler-vous apporter ces modifcations?</string>
+    <string name="add_service">Ajouter un service</string>
+    <string name="no_service_updated">Aucun service n\'a été modifié</string>
+    <string name="cliquer_longuement_pour_supprimer_ncliquer_pour_diter">Cliquer longuement pour supprimer\nCliquer pour éditer</string>
+    <string name="thanks">Merci d\'avoir installé l\'application</string>
+    <string name="contin">Continuer</string>
+    <string name="settings">Paramètres</string>
+    <string name="cannnot_delete_yourself">Vous ne pouvez pas vous supprimer</string>
+    <string name="admin_delete_error">Au moins un administrateur requis!</string>
+    <string name="exit">Quitter</string>
+    <string name="presence_stat">Mes statistiques de présence</string>
+    <string name="my_presence_report">Mes rapports de présence</string>
+    <string name="service_management">Gestion des Services</string>
+    <string name="x_y" translatable="false">x.y</string>
+    <string name="user_or_password" translatable="false"> Username ou mot de passe incorrect !
+    </string>
+
+    <string name="share_via">Partager via</string>
+    <string name="download_link">Suivez facilement la présence de vos
+ employés avec l\'application ClockinApp
+     qui vous propose de nombreuses fonctionalités interessantes.\n
+    Pour télécharger l\'application pour Android, suivez ce lien\n
+
+    </string>
+    <string name="my_account">Mon compte</string>
+    <string name="personal_informations">Informations personnelles</string>
+    <string name="menu_statistics_by_service">Statistiques par services</string>
+    <string name="menu">Menu</string>
+    <string name="wlc">Accueil</string>
+    <string name="account_management">Gestion de compte</string>
+    <string name="max_reached">Trois tentatives d\'authentification échouées !</string>
+    <string name="switch_simple">Passer à son compte simple employé</string>
+    <string name="change_password">Changer le mot de poasse</string>
+    <string name="simple_employee_menu">Menu Simple Employee</string>
+    <string name="acccount_informations">Informations de compte</string>
+    <string name="get_started">Démarrer</string>
+    <string name="ok">Okay</string>
+    <string name="change_orientation">Changer l\'orientation de la caméra</string>
+    <string name="hint">par service, nom ou prénom</string>
+    <string name="admin">admin</string>
+
+
+    "Version du système d'exploitation:\n"+
+    "-"+osVersion.getText().toString()+"\n"+
+    "Version du SDK:\n"+
+    "-"+sdkVersion.getText().toString();
+
+
+</resources>

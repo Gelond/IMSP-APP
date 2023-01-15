@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_color">#00ccff</color>
+    <color name="edittext_border">#ff3d4552</color>
+    <color name="color_default">#fff0eff5</color>
+    <color name="divider">#ffcccccc</color>
+    <color name="buzz_bg">#ffd0d0d0</color>
+    <color name="buzzer_default_color">#00ccff</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="signupColor">#066e8a</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#00a5ff</color>
+
+    <color name="primaryColor">#e91e63</color>
+    <color name="primaryLightColor">#ff6090</color>
+    <color name="primaryDarkColor">#b0003a</color>
+    <color name="secondaryColor">#4a148c</color>
+    <color name="secondaryLightColor">#7c43bd</color>
+    <color name="secondaryDarkColor">#12005e</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+
+
+
+    <color name="textHint">#c6c6c6</color>
+
+
+    <color name="appOrange">#ff9800</color>
+    <color name="appOrangeDark">#ef6c00</color>
+    <color name="red">#D81B60</color>
+        <color name="bar">#ffff8800</color>
+
+
+
+</resources>

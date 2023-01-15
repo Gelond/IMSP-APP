@@ -1,0 +1,16 @@
+dao
+dbAdapter
+entity
+uac.imsp.clockingapp
+uac.imsp.clockingapp.Controller.control
+uac.imsp.clockingapp.Controller.control.settings
+uac.imsp.clockingapp.Controller.control.settings.others
+uac.imsp.clockingapp.Controller.util
+uac.imsp.clockingapp.Controller.util.settings
+uac.imsp.clockingapp.Controller.util.settings.others
+uac.imsp.clockingapp.View.activity
+uac.imsp.clockingapp.View.activity.settings
+uac.imsp.clockingapp.View.activity.settings.others
+uac.imsp.clockingapp.View.util
+uac.imsp.clockingapp.View.util.settings
+uac.imsp.clockingapp.View.util.settings.others

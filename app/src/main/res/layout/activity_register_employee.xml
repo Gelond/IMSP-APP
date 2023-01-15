@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".View.activity.RegisterEmployee"
+    tools:ignore="ExtraText">
+
+
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/registration_title"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:textSize="22sp" />
+
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:textSize="18sp"
+                android:text="@string/reg_number" />
+
+            <EditText
+                android:id="@+id/register_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:labelFor="@id/number"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:textSize="18sp"
+                android:text="@string/register_lastname_text" />
+
+            <EditText
+                android:id="@+id/register_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:textSize="18sp"
+                android:text="@string/register_firstname_text" />
+
+            <EditText
+                android:id="@+id/register_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+
+            <RadioGroup
+                android:id="@+id/register_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/register_boy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:checked="true"
+                    android:text="@string/male">
+
+                </RadioButton>
+
+
+                <RadioButton
+                    android:id="@+id/register_girl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="@string/female" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/birthdate" />
+
+            <EditText
+                android:id="@+id/register_birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:ems="10"
+                android:inputType="date"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+
+            <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_mail_address_text" />
+
+            <EditText
+                android:id="@+id/register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_employe_type_text" />
+
+            <Spinner
+                android:id="@+id/register_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:entries="@array/employee_types"
+                android:spinnerMode="dialog" />
+
+
+            <TextView
+                android:id="@+id/username_textview"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_username_text" />
+
+            <EditText
+                android:id="@+id/register_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+
+            <TextView
+                android:id="@+id/password_textview"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_password" />
+            <RelativeLayout
+                android:id="@+id/password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                      android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/two_step"
+                    android:layout_marginEnd="0dp"
+                    android:autofillHints="4488"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:padding="15dp"
+                    tools:ignore="LabelFor" />
+
+                <ImageView
+                    android:id="@+id/register_show_password"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignEnd="@+id/register_password"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:src="@drawable/baseline_visibility_black_18"
+                    android:contentDescription="@string/todo" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/password_confirm_textview"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_password_confirm" />
+
+            <RelativeLayout
+                android:id="@+id/password_confirm_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/register_password_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/two_step"
+                    android:layout_marginEnd="0dp"
+                    android:autofillHints="4488"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:padding="15dp"
+                    tools:ignore="LabelFor" />
+
+                <ImageView
+                    android:id="@+id/register_show_password_confirm"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignEnd="@+id/register_password_confirm"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:src="@drawable/baseline_visibility_black_18"
+                    android:contentDescription="@string/todo" />
+            </RelativeLayout>
+            <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_service_label" />
+
+            <Spinner
+                android:id="@+id/register_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:spinnerMode="dialog">
+
+            </Spinner>
+
+            <TextView
+                android:textSize="18sp"
+                android:id="@+id/register_planning"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_planning_label" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="20dp"
+    >
+            <TextView
+                android:textSize="18sp"
+                android:id="@+id/register_planning_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/start_time" />
+
+            <NumberPicker
+                android:id="@+id/register_planning_start_choose"
+
+                android:layout_width="25dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="20dp"/>
+
+
+</LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:textSize="18sp"
+                android:id="@+id/register_planning_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/end_time" />
+
+            <NumberPicker
+                android:id="@+id/register_planning_end_choose"
+                android:layout_width="25dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="20dp"/>
+
+
+          </LinearLayout>
+            <TextView
+
+                android:textSize="13sp"
+                android:id="@+id/prog"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_height="25dp"/>
+
+        </LinearLayout>
+            <!--Button to open the image selector-->
+
+            <Button
+                android:id="@+id/register_picture_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shapelogin"
+                android:padding="15dp"
+                android:shadowColor="@android:color/transparent"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/register_picture" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/register_preview_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_person_100"
+                android:layout_marginEnd="16dp"
+                app:civ_border_width="2dp"
+                android:background="@color/black"
+                app:civ_border_color="#FF0000"/>
+
+            <TextView
+                android:id="@+id/register_work_days"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/work_days" />
+            <CheckBox
+                android:id="@+id/monday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/monday"
+                android:checked="true"/>
+
+            <CheckBox
+                android:id="@+id/tuesday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/tuesday"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/wednesday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/wednesday"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/thursday"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/thursday"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/friday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/friday"
+                android:checked="true"/>
+            <CheckBox
+                android:id="@+id/satursday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/satursday"
+                android:checked="true"/>
+
+
+            <CheckBox
+                android:id="@+id/sunday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/sunday"
+                android:checked="true"/>
+
+            <CheckBox
+                android:id="@+id/admin"
+                android:checked="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shapelogin"
+                android:padding="15dp"
+                android:shadowColor="@android:color/transparent"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/register_button" />
+
+            <Button
+                android:id="@+id/register_reset_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/shapelogin"
+                android:padding="15dp"
+                android:shadowColor="@android:color/transparent"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/reset_button" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

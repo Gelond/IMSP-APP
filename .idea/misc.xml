@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/baseline_visibility_20.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/baseline_visibility_24.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/button_bg.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/disabled_visible-48px.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1955" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/mybutton.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/search_view_rounded.xml" value="0.1075" />
+        <entry key="app/src/main/res/font/sdf.xml" value="0.2153846153846154" />
+        <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_consult_presence_report.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_consult_presence_report2.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_consult_report.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_consult_statistic.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_consult_statistic_by_service.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_consult_statistics.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_consult_statistics_by_employee.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_delete_employee.xml" value="0.28488372093023256" />
+        <entry key="app/src/main/res/layout/activity_file_handler.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/activity_general_menu.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_generator.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_manage_service.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_menu2.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_register_employee.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_scanner.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.1671875" />
+        <entry key="app/src/main/res/layout/activity_search_employee.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_set_up.xml" value="0.11822916666666666" />
+        <entry key="app/src/main/res/layout/activity_simple_employee_menu.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/activity_start_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_update_employee.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/result_item_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/view_student_.xml" value="0.1890625" />
+        <entry key="app/src/main/res/menu/general_menu.xml" value="0.18" />
+        <entry key="app/src/main/res/menu/language_menu.xml" value="0.103125" />
+        <entry key="app/src/main/res/menu/menu_actions.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/menu/options_menu.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/xml/searchable.xml" value="0.14140625" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Téléchargements" />
+    <option name="OPTION_SCOPE" value="private" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://schemas.android.com/apk/res-auto&quot;" location="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">20.0dip</dimen>
+    <dimen name="activity_vertical_margin">20.0dip</dimen>
+    <dimen name="buzz_padding">10.0dip</dimen>
+    <dimen name="edittext_padding_tb">10.0dip</dimen>
+    <dimen name="edittext_drawable_padding_l">7.0dip</dimen>
+    <dimen name="edittext_padding_l">20.0dip</dimen>
+    <dimen name="edittext_drawable_padding">10.0dip</dimen>
+    <dimen name="one_step">10.0dip</dimen>
+    <dimen name="two_step">30.0dip</dimen>
+    <dimen name="three_step">40.0dip</dimen>
+    <dimen name="four_step">50.0dip</dimen>
+    <dimen name="five_step">90.0dip</dimen>
+    <dimen name="widget_radius">15.0dip</dimen>
+    <dimen name="big_text">22.0sp</dimen>
+    <dimen name="medium_text">12.0sp</dimen>
+    <dimen name="small_text">10.0sp</dimen>
+    <dimen name="large_text">15.0sp</dimen>
+    <dimen name="bt_stroke">1.0dip</dimen>
+    <dimen name="bt_stroke_big">3.0dip</dimen>
+    <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="form_app_bar_height">250dp</dimen>
+</resources>

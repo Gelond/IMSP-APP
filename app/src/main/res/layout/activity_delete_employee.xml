@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="10dp"
+
+    tools:context=".View.activity.DeleteEmployee"
+    tools:ignore="ExtraText">
+
+
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/register_preview_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_person_100"
+                android:layout_marginEnd="16dp"
+                app:civ_border_width="2dp"
+                android:background="@color/black"
+                app:civ_border_color="#FF0000"/>
+
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="65dp"
+                android:text="@string/reg_number"/>
+
+
+            <EditText
+                android:id="@+id/register_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_lastname_text" />
+
+            <EditText
+                android:id="@+id/register_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_firstname_text" />
+
+            <EditText
+                android:id="@+id/register_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+
+            <RadioGroup
+                android:id="@+id/register_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/register_boy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:checked="true"
+                    android:text="@string/male">
+
+                </RadioButton>
+
+
+                <RadioButton
+                    android:id="@+id/register_girl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="@string/female" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/birthdate" />
+
+            <EditText
+                android:id="@+id/register_birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:ems="10"
+                android:inputType="date"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_mail_address_text" />
+
+            <EditText
+                android:id="@+id/register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_employe_type_text" />
+            <EditText
+                android:id="@+id/register_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_username_text" />
+
+            <EditText
+                android:id="@+id/register_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_service_label" />
+
+            <EditText
+                android:id="@+id/register_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:id="@+id/register_planning"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/register_planning_label" />
+            <EditText
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:id="@+id/prog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:text="@string/delete_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/shapelogin"
+                android:padding="15dp"
+                android:shadowColor="@android:color/transparent"
+                android:backgroundTint="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

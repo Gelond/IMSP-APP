@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.activity.settings.MainSetting"
+    android:orientation="vertical">
+
+
+
+    <ScrollView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setting_about_app"
+        android:orientation="vertical"
+
+        >
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:text="@string/about_app"
+            android:id="@+id/setting_about_title"
+            android:layout_height="wrap_content"/>
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_about_title"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/share_app"
+            android:id="@+id/setting_share"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_share_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_share"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/share_via_qr"
+            android:id="@+id/setting_share_with_qr"
+            android:layout_height="wrap_content"
+            app:drawableLeftCompat="@drawable/ic_baseline_qr_code_scanner_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_share_with_qr"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/details"
+             android:id="@+id/setting_overview"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_details_25" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_overview"
+            android:orientation="vertical"
+            android:id="@+id/setting_version_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/app_version"
+            android:id="@+id/setting_version_label"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_phone_android_25" />
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_version_label"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:text="@string/x_y"
+                android:id="@+id/setting_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/setting_version_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/user_guide"
+            android:id="@+id/setting_docs"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_library_books_24" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@+id/setting_docs"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/setting_cache_layout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/clear_cache"
+            android:id="@+id/setting_clear_cache"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_delete_sweep_25" />
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_clear_cache"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:text="@string/size"
+                android:id="@+id/setting_cache_size"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_about_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setting_about_establishment"
+        android:orientation="vertical"
+        >
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:text="@string/about_est"
+            android:id="@+id/setting_establishment"
+            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@+id/setting_establishment"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/setting_name_layout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/nom"
+            android:id="@+id/setting_name_label"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_mode_edit_25" />
+            <TextView
+                app:layout_constraintTop_toBottomOf="@+id/setting_name_label"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:id="@+id/setting_name"
+                android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_name_layout"
+            android:id="@+id/setting_mail_layout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/register_mail_address_text"
+            android:id="@+id/setting_mail_label"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_alternate_email_25" />
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_mail_label"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:id="@+id/setting_mail"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/setting_mail_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/setting_description_layout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:text="@string/description"
+                android:id="@+id/setting_description_label"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_baseline_description_25" />
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:id="@+id/setting_description"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_description_layout"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/picture"
+            android:id="@+id/setting_picture"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_picture_in_picture_25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/setting_about_establishment"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+             android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:text="@string/set"
+            android:id="@+id/setting_account"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_account"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:id="@+id/setting_services"
+            android:text="@string/service_management"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setting_others_layout"
+        android:orientation="vertical"
+        >
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:text="@string/more_parameters"
+            android:id="@+id/setting_other_label"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_other_label"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/attendance_gesture"
+            android:id="@+id/setting_attendance"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_timer_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_attendance"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/dark"
+            android:id="@+id/setting_dark"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_dark_mode_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_dark"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/languages"
+            android:id="@+id/setting_languages"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_language_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_languages"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/report_problem"
+            android:id="@+id/setting_problem"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_report_problem_25" />
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_problem"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/help"
+            android:id="@+id/setting_help"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_help_outline_25" />
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_help"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/switch_simple"
+            android:id="@+id/switch_to_simple"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_switch_account_25" />
+
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_to_simple"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/logout"
+            android:id="@+id/logout"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_baseline_logout_25" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

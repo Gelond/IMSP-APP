@@ -1,0 +1,106 @@
+plugins {
+    id 'com.android.application'
+}
+
+
+android {
+
+    //32
+    compileSdk 33
+
+
+    defaultConfig {
+        applicationId "uac.imsp.clockingapp"
+        minSdk 26
+        //32
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+
+
+
+
+
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java', 'src/main/java/Model',
+                        'src/main/java/Model/util',
+                        'src/main/java/uac/imsp/clockingapp/Model',
+                        'src/main/java/uac/imsp/clockingapp/Model/util',
+                        'src/main/java/uac/imsp/clockingapp/Model/manager',
+                        'src/main/java/uac/imsp/clockingapp/db_config'
+            }
+        }
+    }
+    namespace 'uac.imsp.clockingapp'
+
+
+}
+
+
+
+android.applicationVariants.all { variant ->
+    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+        description "Generates Javadoc for $variant.name."
+
+        source = variant.javaCompile.source
+        destinationDir = file("$rootDir/javadoc/")
+        failOnError false
+
+        doFirst {
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+
+            options.addStringOption "-show-members", "package"
+        }
+    }}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:latest'
+
+    implementation 'androidx.constraintlayout:constraintlayout:latest'
+    implementation 'androidx.annotation:annotation:latest'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation  'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+        implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+   //
+
+
+    //implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout-core:1.0.4'
+
+
+
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+        implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    androidTestImplementation 'junit:junit:4.13.2'
+
+
+}

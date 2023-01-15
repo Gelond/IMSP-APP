@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="wrap_content"
+
+    android:layout_gravity="center_horizontal"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginTop="10dp"
+app:layout_constraintTop_toTopOf="parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+    <Button
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/menu_register"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/ic_baseline_person_add_alt_50"
+        android:background="@color/colorPrimary"
+        android:paddingTop="20dp"
+        android:text="@string/general_menu_register"
+        style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                app:layout_constraintStart_toEndOf="@id/menu_register"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/menu_search"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="20dp"
+                android:drawableTop="@drawable/ic_baseline_format_list_bulleted_50"
+                android:paddingTop="20dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/general_menu_employee_list"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+            android:id="@+id/LinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:foregroundGravity="center"
+            android:orientation="horizontal">
+    <Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/menu_clock"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/ic_baseline_timer_50"
+        android:paddingTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/menu_clock_button"
+        style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu_clock"
+                android:id="@+id/menu_statistics_by_servie"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="20dp"
+                android:paddingTop="20dp"
+                android:drawableTop="@drawable/ic_baseline_pie_chart_50"
+                android:background="@color/colorPrimary"
+                android:text="@string/consult_stat"
+                android:gravity="center"
+                style="?android:attr/buttonBarButtonStyle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--/ScrollView-->
