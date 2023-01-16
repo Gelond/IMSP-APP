@@ -90,9 +90,6 @@ public class LoginController  implements ILoginController {
                     loginView.onSimpleEmployeeLogin();
 
 
-                //loginView.askWish();
-
-
             }
         }}
     @Override
