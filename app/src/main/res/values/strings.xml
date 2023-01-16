@@ -334,6 +334,7 @@
     <string name="change_orientation">Changer l\'orientation de la caméra</string>
     <string name="hint">par service, nom ou prénom</string>
     <string name="admin">admin</string>
+    <string name="place_your_finger">Place your finger</string>
 
 
     "Version du système d'exploitation:\n"+

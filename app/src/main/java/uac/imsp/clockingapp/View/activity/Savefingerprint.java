@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import uac.imsp.clockingapp.R;
 
-public class Savefingerprint extends AppCompatActivity {
+public class Savefingerprint extends AppCompatActivity  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
