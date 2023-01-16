@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 app:drawableStartCompat="@drawable/ic_baseline_help_outline_25" />
     <TextView
-        app:layout_constraintTop_toBottomOf="@+id/setting_problem"
+        app:layout_constraintTop_toBottomOf="@+id/setting_help"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="10dp"
         android:textSize="16sp"
@@ -89,6 +89,6 @@
         android:text="@string/save_fingerprint"
         android:id="@+id/setting_save_fingerprint"
         android:layout_height="wrap_content"
-        app:drawableStartCompat="@drawable/ic_baseline_help_outline_25" />
+        app:drawableStartCompat="@drawable/ic_baseline_fingerprint_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
