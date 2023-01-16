@@ -1,4 +1,9 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    var = '/home/firminsh/Ezechiel/my_project/my_key_store.jks'
+    var1 = '200244Eze'
+    var2 = 'my_key'
+    var3 = '200244Eze'
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 
 buildscript {
