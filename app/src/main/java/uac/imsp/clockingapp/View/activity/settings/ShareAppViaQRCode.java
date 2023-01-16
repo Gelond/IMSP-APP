@@ -40,7 +40,7 @@ public class ShareAppViaQRCode extends AppCompatActivity {
 	}
 
 		public void generateQRCode() {
-			String url = "https://play.google.com/store/apps/details?id=com.example.myapp";
+			String url = "https://drive.google.com/file/d/1jFGOZJgvOihoBqkNw3zgWbMZQNX1rIDJ/view?usp=share_link";
 			QRCodeWriter qrCodeWriter = new QRCodeWriter();
 			try {
 				BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, 500, 500);

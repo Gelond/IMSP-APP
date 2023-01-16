@@ -169,7 +169,7 @@ IMainSettingsController mainSettingsPresenter;
 		intent=new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.download_link)+
-				"https://drive.google.com/file/d/1t_F2tkCxMHNlNZuiseF6ozprgqdUvCTd/view");
+				"https://drive.google.com/file/d/1jFGOZJgvOihoBqkNw3zgWbMZQNX1rIDJ/view?usp=share_link");
 
 		startActivity(Intent.createChooser(intent, getString(R.string.share_via)));
 

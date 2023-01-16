@@ -4,6 +4,21 @@ plugins {
 
 
 android {
+    signingConfigs {
+        real {
+            storeFile file(var)
+            storePassword var1
+            keyAlias var2
+            keyPassword var3
+        }
+        mine {
+            storeFile file(var)
+            storePassword var1
+            keyAlias var2
+            keyPassword var3
+        }
+    }
+
 
     //32
     compileSdk 33
@@ -77,28 +92,17 @@ android.applicationVariants.all { variant ->
     }}
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:latest'
-
-    implementation 'androidx.constraintlayout:constraintlayout:latest'
-    implementation 'androidx.annotation:annotation:latest'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.annotation:annotation:1.5.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation  'com.google.android.gms:play-services-vision:20.1.3'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-        implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-   //
-
-
-    //implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout-core:1.0.4'
-
-
-
-
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-        implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     implementation 'com.google.android.material:material:1.7.0'
     androidTestImplementation 'junit:junit:4.13.2'
 
