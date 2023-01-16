@@ -87,14 +87,11 @@ public String md5(String password) {
 
                 changePasswordView.onWrongPassword();
             else {
-                Runnable runnable=new Runnable() {
-                    @Override
-                    public void run() {
-                        employeeManager=new EmployeeManager(context);
-                        employeeManager.open();
-                        employeeManager.changePassword(employee, (newPassword));
-                        employeeManager.close();
-                    }
+                Runnable runnable= () -> {
+                    employeeManager=new EmployeeManager(context);
+                    employeeManager.open();
+                    employeeManager.changePassword(employee, (newPassword));
+                    employeeManager.close();
                 };
                  AsyncTask.execute(runnable);
                 changePasswordView.onSuccess();

@@ -10,31 +10,33 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import uac.imsp.clockingapp.Controller.control.SimpleEmployeeMenuController;
-import uac.imsp.clockingapp.Controller.util.ISimpleEmployeeMenuController;
+import uac.imsp.clockingapp.Controller.control.settings.others.SimpleEmployeeSettingsController;
+import uac.imsp.clockingapp.Controller.util.ISimpleEmployeeSettingsController;
 import uac.imsp.clockingapp.R;
+import uac.imsp.clockingapp.View.activity.Savefingerprint;
 import uac.imsp.clockingapp.View.activity.settings.others.DarkMode;
 import uac.imsp.clockingapp.View.activity.settings.others.Help;
 import uac.imsp.clockingapp.View.activity.settings.others.Languages;
 import uac.imsp.clockingapp.View.activity.settings.others.ReportProblem;
-import uac.imsp.clockingapp.View.util.ISimpleEmployeeMenuView;
+import uac.imsp.clockingapp.View.util.settings.ISimpleEmployeeSettingsView;
 
 public class SimpleEmployeeSettings extends AppCompatActivity
-		implements View.OnClickListener, ISimpleEmployeeMenuView {
-	private ISimpleEmployeeMenuController simpleEmployeeMenuPresenter;
+		implements View.OnClickListener, ISimpleEmployeeSettingsView {
+	private ISimpleEmployeeSettingsController simpleEmployeeSettingsPresenter;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_simple_employee_settings);
-		simpleEmployeeMenuPresenter=new SimpleEmployeeMenuController(this);
+		simpleEmployeeSettingsPresenter=new SimpleEmployeeSettingsController(this);
 		ActionBar actionBar = getSupportActionBar();
 // showing the back button in action bar
 		assert actionBar != null;
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setTitle(R.string.settings);
 		initView();
+		simpleEmployeeSettingsPresenter=new SimpleEmployeeSettingsController(this);
 	}
 	public void initView(){
 		 final TextView dark=findViewById(R.id.setting_dark),
@@ -42,7 +44,9 @@ public class SimpleEmployeeSettings extends AppCompatActivity
 				 problem=findViewById(R.id.setting_problem),
 				 help=findViewById(R.id.setting_help),
 				 personalInfos=findViewById(R.id.setting_personal_infos),
-				accountSettings=findViewById(R.id.setting_my_account);
+				accountSettings=findViewById(R.id.setting_my_account),
+				 saveFingerprint=findViewById(R.id.setting_save_fingerprint);
+		 saveFingerprint.setOnClickListener(this);
 		 dark.setOnClickListener(this);
 		lang.setOnClickListener(this);
 		problem.setOnClickListener(this);
@@ -57,51 +61,44 @@ public class SimpleEmployeeSettings extends AppCompatActivity
 	@Override
 	public void onClick(@NonNull View v) {
 		if(v.getId()==R.id.setting_my_account){
-			startActivity(new Intent(this,Account.class));
+			simpleEmployeeSettingsPresenter.onMyAccount();
+
 
 		}
 		else if (v.getId()==R.id.setting_personal_infos){
-			startActivity((new Intent(this, PersonalInformations.class)
-					).putExtra("CURRENT_USER",
-					getIntent().getIntExtra("CURRENT_USER",0))
-			);
+			simpleEmployeeSettingsPresenter.onPersonalInfos();
+
 
 		}
 		else if (v.getId()==R.id.setting_docs){
+			simpleEmployeeSettingsPresenter.onUserDocs();
 
 		}
 
 		else if (v.getId()==R.id.setting_dark){
-			startActivity(new Intent(this, DarkMode.class));
+			simpleEmployeeSettingsPresenter.onDarkMode();
 
 		}
 
 		else if (v.getId()==R.id.setting_languages){
 
-			startActivity(new Intent(this, Languages.class));
+			simpleEmployeeSettingsPresenter.onLanguage();
 		}
 
 		else if (v.getId()==R.id.setting_problem){
-			startActivity(new Intent(this, ReportProblem.class));
+			simpleEmployeeSettingsPresenter.onProblem();
 
 		}
 
 		else if (v.getId()==R.id.setting_help){
-			startActivity(new Intent(this, Help.class));
+			simpleEmployeeSettingsPresenter.onHelp();
 
 		}
+		else if(v.getId()==R.id.setting_save_fingerprint)
+			simpleEmployeeSettingsPresenter.onSaveFingerprint();
 
 	}
 
-		@Override
-	public void onConsultatisticsMenuSuccessful() {
-
-	}
-
-	@Override
-	public void onClocking() {
-
-	}
 
 	@Override
 	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -112,18 +109,52 @@ public class SimpleEmployeeSettings extends AppCompatActivity
 		return super.onOptionsItemSelected(item);
 	}
 
+
 	@Override
-	public void onSettings() {
+	public void onAccount() {
+		startActivity(new Intent(this,Account.class));
 
 	}
 
 	@Override
-	public void onConsultPresenceReport() {
+	public void onPersonalInfos() {
+		startActivity((new Intent(this, PersonalInformations.class)
+				).putExtra("CURRENT_USER",
+						getIntent().getIntExtra("CURRENT_USER",0))
+		);
 
 	}
 
 	@Override
-	public void onExit() {
+	public void onUserDocs() {
 
+	}
+
+	@Override
+	public void onDarkMode() {
+		startActivity(new Intent(this, DarkMode.class));
+	}
+
+	@Override
+	public void onLanguage() {
+		startActivity(new Intent(this, Languages.class));
+	}
+
+	@Override
+	public void onProblem() {
+		startActivity(new Intent(this, ReportProblem.class));
+	}
+
+	@Override
+	public void onHelp() {
+		startActivity(new Intent(this, Help.class));
+	}
+
+	@Override
+	public void onSaveFingerprint() {
+		startActivity((new Intent(this, Savefingerprint.class)).
+				putExtra("CURRENT_USER",
+				getIntent().getIntExtra("CURRENT_USER",0))
+		);
 	}
 }

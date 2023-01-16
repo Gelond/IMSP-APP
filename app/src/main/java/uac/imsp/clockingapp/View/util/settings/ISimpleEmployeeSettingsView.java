@@ -1,7 +1,7 @@
-package uac.imsp.clockingapp.Controller.util;
+package uac.imsp.clockingapp.View.util.settings;
 
-public interface ISimpleEmployeeSettingsController {
-	void onMyAccount();
+public interface ISimpleEmployeeSettingsView {
+	void onAccount();
 
 	void onPersonalInfos();
 
