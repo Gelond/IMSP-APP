@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import uac.imsp.clockingapp.Controller.control.settings.others.SimpleEmployeeSettingsController;
 import uac.imsp.clockingapp.Controller.util.ISimpleEmployeeSettingsController;
 import uac.imsp.clockingapp.R;
-import uac.imsp.clockingapp.View.activity.Savefingerprint;
 import uac.imsp.clockingapp.View.activity.settings.others.DarkMode;
 import uac.imsp.clockingapp.View.activity.settings.others.Help;
 import uac.imsp.clockingapp.View.activity.settings.others.Languages;
@@ -152,7 +151,7 @@ public class SimpleEmployeeSettings extends AppCompatActivity
 
 	@Override
 	public void onSaveFingerprint() {
-		startActivity((new Intent(this, Savefingerprint.class)).
+		startActivity((new Intent(this, SaveFingerprint.class)).
 				putExtra("CURRENT_USER",
 				getIntent().getIntExtra("CURRENT_USER",0))
 		);

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "238019047473",
+    "project_id": "clockingapp-75f02",
+    "storage_bucket": "clockingapp-75f02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238019047473:android:5917522319be5c5d892510",
+        "android_client_info": {
+          "package_name": "uac.imsp.clockingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "238019047473-1gcb1ok275grps7u6cr238fef6su74u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uac.imsp.clockingapp",
+            "certificate_hash": "4bcb4a86151efec8ef0c88ea3ea6ed195117aa93"
+          }
+        },
+        {
+          "client_id": "238019047473-8gc75uhr7qgnie2nuug9vfl9vh4gia0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_MVDy6l82NkdoVDz_GCBqRntjLaGIotw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238019047473-8gc75uhr7qgnie2nuug9vfl9vh4gia0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

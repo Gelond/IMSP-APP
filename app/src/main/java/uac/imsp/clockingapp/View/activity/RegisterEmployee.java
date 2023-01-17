@@ -428,7 +428,8 @@ public class RegisterEmployee extends AppCompatActivity
     @Override
     public void sendEmail(String[] to, String qrCodeFileName,
                           String lastname, String firstname,
-                          String username, String password, String gender) {
+                          String username, String password,
+                          String gender) {
 
 
         String subject=getString(R.string.subject_registration);
@@ -627,4 +628,41 @@ return tab;
         Username.setText(s.toString());
 
     }
+
+
+    /*public void sendEmail(String recipient, String subject, String body) {
+        String username="adedeezechiel@mail.com",password="200244Eze%";
+        try
+
+        {
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+
+           // Session session = Session.getInstance(props,
+                 /*   new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication
+                                    (username, password);
+                        }
+                    });
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(recipient));
+            message.setSubject(subject);
+            //message.setFileName(filename);
+            //message.set
+            message.setText(body);
+
+            Transport.send(message);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+
 }

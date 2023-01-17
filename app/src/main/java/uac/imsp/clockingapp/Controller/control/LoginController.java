@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import dao.EmployeeManager;
 import entity.Day;
 import entity.Employee;
+import uac.imsp.clockingapp.BuildConfig;
 import uac.imsp.clockingapp.Controller.util.ILoginController;
 import uac.imsp.clockingapp.View.util.ILoginView;
 
@@ -44,8 +45,10 @@ public class LoginController  implements ILoginController {
       int loginCode;
         employeeManager=new EmployeeManager(context);
         employeeManager.open();
-     /* username="User10";
-      password="Aab10%";*/
+        if(BuildConfig.DEBUG) {
+            username = "User10";
+            password = "Aab10%";
+        }
 
        // Construction of an employee who wanna login
         Employee employee = new Employee(username,password);

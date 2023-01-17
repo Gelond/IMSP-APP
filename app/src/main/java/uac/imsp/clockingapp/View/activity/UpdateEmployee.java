@@ -433,7 +433,7 @@ typeUpdated=false;
         sendEmail(new String[]{Email.getText().toString().trim()},
                 getString(R.string.notification_title),getString(R.string.notification));
 //loadData();
-        onRestart();
+onRestart();
 
     }
 

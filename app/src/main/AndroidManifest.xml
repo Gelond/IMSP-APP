@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
 
     <application
         android:allowBackup="false"
@@ -62,7 +64,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".View.activity.Savefingerprint"
+            android:name=".View.activity.settings.SaveFingerprint"
             android:exported="false"
             android:label="@string/save_fingerprint">
             <meta-data

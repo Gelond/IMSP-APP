@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".View.activity.Savefingerprint">
+    tools:context=".View.activity.settings.SaveFingerprint">
     <TextView
         android:layout_marginTop="10dp"
         android:text="@string/place_your_finger"
@@ -20,7 +20,7 @@
 
     <TextView
         android:layout_marginTop="20dp"
-        android:text="Pleas,place your finger on the sensor to scan your fingerprint"
+        android:text="@string/fingerprint_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         android:layout_width="wrap_content"
