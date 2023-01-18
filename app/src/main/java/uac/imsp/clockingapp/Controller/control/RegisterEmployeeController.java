@@ -29,7 +29,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
 import dao.DayManager;
 import dao.EmployeeManager;
@@ -66,16 +68,26 @@ public class RegisterEmployeeController implements IRegisterEmployeeController
     }
 
     @Override
-    public String[] onLoad() {
-
-
+    public String[] onLoad(int gereratedNumber) {
        // String serviceLIst[]
         serviceManager = new ServiceManager(context);
-
         serviceManager.open();
         String[] services = serviceManager.getAllServices();
-        serviceManager.close();
 
+        serviceManager.close();
+        EmployeeManager employeeManager=new EmployeeManager(context);
+        employeeManager.open();
+      int []  regNumbers=   employeeManager.getRegNumbers();
+
+        Random rand = new Random();
+        int randomNaturalNumber;
+        do {
+            randomNaturalNumber = rand.nextInt(100) + 1;
+
+            // generates a random number between 1 and 100 (inclusive)
+        }while(Arrays.binarySearch(regNumbers, randomNaturalNumber) >= 0);
+        gereratedNumber=randomNaturalNumber;
+        employeeManager.close();
         return services;
     }
 
@@ -86,7 +98,7 @@ public class RegisterEmployeeController implements IRegisterEmployeeController
                                    String username, String password,
                                    String passwordConfirm,
                                    String selectedService, int startTime, int endTime,
-                                   byte[] picture, String type, @NonNull byte[] workdays,boolean isAdmin) {
+                                   byte[] picture, String fucntion, @NonNull byte[] workdays, boolean isAdmin) {
         int nb_workdays=0;
         for(byte elt:workdays)
         {
@@ -114,7 +126,7 @@ String gend;
         try {
             n = Integer.parseInt(number);
             employee=new Employee(n,lastname,firstname,gender.charAt(0),
-                    birthdate,mail,picture,username,password,type);
+                    birthdate,mail,picture,username,password, fucntion);
 
             if(birthdate==null) {
                 birthdate = (new Day()).getDate();

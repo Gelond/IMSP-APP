@@ -21,13 +21,13 @@ import uac.imsp.clockingapp.R;
 public class ManageUsername extends AppCompatActivity
         implements RadioGroup.OnCheckedChangeListener,
 CompoundButton.OnCheckedChangeListener {
-
+    SwitchMaterial generateNumber;
     RadioButton emailAsUsername, editUsername;
     RadioGroup usernameGroup;
     SwitchMaterial showPassword;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    boolean GenPwd, EditUsername, EditPassword, Add, Update, Delete;
+    boolean GenPwd, EditUsername, EditPassword, Add, Update, Delete,genNum;
     CheckBox add, update, delete, generatePassword;
 
     @Override
@@ -54,6 +54,9 @@ CompoundButton.OnCheckedChangeListener {
         add = findViewById(R.id.setting_add);
         update = findViewById(R.id.setting_update);
         delete = findViewById(R.id.setting_delete);
+        generateNumber=findViewById(R.id.generate_number);
+        generateNumber.setChecked(genNum);
+        generateNumber.setOnCheckedChangeListener(this);
 
 
         if (!GenPwd)
@@ -89,7 +92,7 @@ CompoundButton.OnCheckedChangeListener {
                 Context.MODE_PRIVATE);
         editor = preferences.edit();
         //EmailAsUsername=preferences.getBoolean("emailAsUsername",false);
-
+        genNum=preferences.getBoolean("generateNumber",true);
         GenPwd = preferences.getBoolean("generatePassword", false);
         EditUsername = preferences.getBoolean("editUsername", true);
         EditPassword = preferences.getBoolean("showPasswordDuringAdd", true);
@@ -127,6 +130,8 @@ CompoundButton.OnCheckedChangeListener {
             editor.putBoolean("generatePassword", isChecked);
             showPassword.setVisibility(isChecked ? View.VISIBLE : View.GONE);
         }
+        else if(buttonView.getId()==R.id.generate_number)
+            editor.putBoolean("generateNumber",isChecked);
 
         editor.apply();
     }

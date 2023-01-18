@@ -35,7 +35,7 @@ public class RegisterEmployeeTest  implements IRegisterEmployeeView {
         String [] services;
         new RegisterEmployeeTest();
         assertNotNull(registerEmployeePresenter);
-        services= registerEmployeePresenter.onLoad();
+        services= registerEmployeePresenter.onLoad(numm);
         assertNotNull(registerEmployeePresenter.getServiceManager());
         assertNotNull(services);
         assertNotEquals(0,services.length);

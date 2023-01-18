@@ -85,11 +85,6 @@
             android:text="@string/during_emp_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <!--RadioGroup
-            android:layout_marginTop="10dp"
-            android:id="@+id/password_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"-->
             <CheckBox
                 app:layout_constraintTop_toBottomOf="@+id/during_add"
                 app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +145,20 @@
                 android:id="@+id/setting_update"
                 android:layout_height="wrap_content"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_layout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:id="@+id/generate_number"
+        android:text="@string/generate_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -332,6 +332,7 @@
     <string name="see_holidays">Consult holidays</string>
     <string name="register_employe_function_text">Fonction de l\'employé</string>
     <string name="holdays">Holidays</string>
+    <string name="generate_number">Generate numbers</string>
 
 
     "Version du système d'exploitation:\n"+

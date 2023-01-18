@@ -49,8 +49,6 @@ import uac.imsp.clockingapp.Controller.util.IRegisterEmployeeController;
 import uac.imsp.clockingapp.R;
 import uac.imsp.clockingapp.View.util.IRegisterEmployeeView;
 import uac.imsp.clockingapp.View.util.ToastMessage;
-
-
 public class RegisterEmployee extends AppCompatActivity
         implements NumberPicker.OnValueChangeListener , NumberPicker.Formatter,
         IRegisterEmployeeView,
@@ -73,15 +71,11 @@ public class RegisterEmployee extends AppCompatActivity
     private String gend;
     private String SelectedService;
     private int Start=8,End=17;
-
-    boolean editUsername,generatePassword,notice,showPassword;
+    boolean editUsername,generatePassword,notice,showPassword,genNum;
      CheckBox monday,tuesday,wednesday,thursday,friday,satursday,sunday;
     CheckBox[] myTable=new CheckBox[7];
     byte[] days=new byte[7];
-
-
-
-
+    int  reg = 0;
     @SuppressLint({"DefaultLocale", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +89,14 @@ public class RegisterEmployee extends AppCompatActivity
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.general_menu_register);
-
-        initView();
         retrieveSharedPreferences();
+        initView();
+        if(genNum)
+        {
+         Number.setFocusable(false);
+         Number.setLongClickable(false);
+         Number.setText(String.valueOf(reg));
+        }
         if(!editUsername) {
             Username.setFocusable(false);
             Username.setLongClickable(false);
@@ -106,7 +105,6 @@ public class RegisterEmployee extends AppCompatActivity
 
         if(generatePassword)
         {
-
             String generetedPassword=generatePassword();
             Password.setText(generetedPassword);
             Password.setFocusable(false);
@@ -120,17 +118,9 @@ public class RegisterEmployee extends AppCompatActivity
                findViewById(R.id.password_layout).setVisibility(View.GONE);
                 findViewById(R.id.password_confirm_layout).setVisibility(View.GONE);
             }
-
         }
-
-
         gend="M";
-
-
-
             }
-
-
     @NonNull
     public  String shuffle(@NonNull String input){
         List<Character> characters = new ArrayList<>();
@@ -145,7 +135,6 @@ public class RegisterEmployee extends AppCompatActivity
         return output.toString();
 
     }
-
     @NonNull
     public  String generateTwoChars(@NonNull String str){
         Random r = new Random();
@@ -161,9 +150,6 @@ public class RegisterEmployee extends AppCompatActivity
         return generateTwoChars(upper)+ generateTwoChars(lower)+ generateTwoChars(digits)+ generateTwoChars(specialChars);
 
     }
-
-
-
     public void retrieveSharedPreferences(){
         final  String PREFS_NAME="MyPrefsFile";
         SharedPreferences preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
@@ -171,6 +157,7 @@ public class RegisterEmployee extends AppCompatActivity
         editUsername=preferences.getBoolean("editUsername",true);
         generatePassword=preferences.getBoolean("generatePassword",false);
         notice=preferences.getBoolean("notifyDuringAdd",true);
+        genNum=preferences.getBoolean("gererateNumber",true);
       showPassword=  preferences.getBoolean("showPasswordDuringAdd",true);
     }
 
@@ -245,13 +232,8 @@ public class RegisterEmployee extends AppCompatActivity
                     toString(Password),toString(PasswordConfirm),SelectedService,
                     Start,End,Picture, toString(function),days,
                     ((CheckBox)findViewById(R.id.admin)).isChecked());
-
-
-
-
         }
         else if (v.getId() == R.id.register_reset_button)
-
             resetInput();
         else if (v.getId() == R.id.register_birthdate) {
             final Calendar cldr = Calendar.getInstance();
@@ -313,18 +295,12 @@ public class RegisterEmployee extends AppCompatActivity
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
-
-
-
-
     @Override
     public void onRegisterEmployeeSuccess() {
         new ToastMessage(this,getString(R.string.registration_successful));
         resetInput();
     }
-
     @Override
     public void onRegisterEmployeeError(int errorNumber) {
 
@@ -466,9 +442,11 @@ public class RegisterEmployee extends AppCompatActivity
 
 
         //new controller instance created
-        registerEmployeePresenter = new RegisterEmployeeController(this);
+        registerEmployeePresenter = new RegisterEmployeeController(
+                this);
+
         // The view gets service list from the controller
-        String[] services = registerEmployeePresenter.onLoad();
+        String[] services = registerEmployeePresenter.onLoad(reg);
 
         SelectedService= services[0];
         Spinner spinnerServices = findViewById(R.id.register_service);
@@ -538,13 +516,7 @@ public class RegisterEmployee extends AppCompatActivity
             n.setMaxValue(max);
             n.setWrapSelectorWheel(true);
             n.setOnValueChangedListener(this);
-
         }
-
-
-
-
-
     }
 
     @Override

@@ -91,6 +91,7 @@ public class StartScreenController  implements IStartScreenController {
             editor.putString("lang","fr");
             editor.putBoolean("dark",false);
             editor.putString("nextStep","setup");
+            editor.putBoolean("generateNumber",true);
             editor.apply();
             firstRun=true;
             startScreenView.onFirstRun();

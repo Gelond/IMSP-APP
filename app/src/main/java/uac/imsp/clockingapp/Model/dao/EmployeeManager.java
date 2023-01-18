@@ -715,4 +715,21 @@ public String selectVariable(){
         for(Employee employee:employees)
             initDayAttendance(employee,status,day);
     }
+
+    public int[] getRegNumbers() {
+        Cursor cursor;
+        String query = "SELECT matricule FROM employe";
+
+        cursor = Database.rawQuery(query, null);
+        cursor.moveToFirst();
+        int [] regNumbers = new int[cursor.getColumnCount()];
+        int i=0;
+         while (cursor.moveToNext())
+         {
+             regNumbers[i]=cursor.getInt(0);
+             i++;
+         }
+        cursor.close();
+         return  regNumbers;
+    }
 }
