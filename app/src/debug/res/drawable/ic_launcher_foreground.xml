@@ -12,7 +12,7 @@
                 android:startX="42.9492"
                 android:endY="92.4963"
                 android:endX="85.84757"
-                android:type="linear">
+                android:function="linear">
                 <item
                     android:color="#44000000"
                     android:offset="0.0" />

@@ -141,12 +141,18 @@ public class StartScreenController  implements IStartScreenController {
 
             while(d.getDate().compareTo(day.getDate()) <=0) {
                 dayManager.create(d);
+                if(dayManager.isHoliday(d)) {
+                    status = "Ferié";
+                    employeeManager.initDayAttendance(employees, status, day);
+                    continue;
+                }
 
                 for (Employee employee : employees) {
                     employeeManager.retrieveAddDate(employee);
                     if(employee.getAddDate().compareTo(d.getDate())>0)
                         continue;
-                    if (employeeManager.shouldNotWorkThatDay(employee, d))
+
+                    else if (employeeManager.shouldNotWorkThatDay(employee, d))
                         status = "Hors service";
                     else
                         status = "Absent";

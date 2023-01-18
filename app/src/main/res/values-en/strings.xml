@@ -202,7 +202,7 @@
     <string name="share">Share</string>
     <string name="fingerprint">Scannez votre empreinte pour marquer votre entrée ou sortie</string>
    <string name="confirm_login">Do you want to login as administrator\?</string>
-    <string name="confirm_login_title">Choice of connection type</string>
+    <string name="confirm_login_title">Choice of connection function</string>
     <string name="yes" >Yes</string>
     <string name="no" >No</string>
     <string name="required" >Required \!</string>

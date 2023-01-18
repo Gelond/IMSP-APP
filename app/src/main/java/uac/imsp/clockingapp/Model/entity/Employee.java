@@ -79,8 +79,8 @@ public class Employee implements IEmployee {
     private String Username;
     /**Represents the password of the employee and must not be empty**/
     private String Password;
-    /**Represents the type of the employee and must not be empty**/
-    private String Type;
+    /**Represents the function of the employee and must not be empty**/
+    private String Function;
     /**Represents the workdays of the employee and must not be empty**/
     private byte[] Workdays;
     /**Represents the day when the employee has been created**/
@@ -107,12 +107,12 @@ public class Employee implements IEmployee {
  * @param picture represents the eventual picture
  *  @param username is the username of the employee
  * @param password: his password
- * @param type is his type
+ * @param function is his function
  * **/
     public Employee(int registrationNumber, String lastname,
                     String firstname, char gender, String birthdate,
                  String mailAddress, byte[] picture,  String username,
-                    String password,String type) {
+                    String password,String function) {
 
         RegistrationNumber = registrationNumber;
 
@@ -124,7 +124,7 @@ public class Employee implements IEmployee {
         Picture = picture;
         Username = username;
         Password = password;
-        Type=type;
+        Function = function;
 
     }
     /**@return  the day when the employee has been created**/
@@ -147,15 +147,15 @@ public class Employee implements IEmployee {
      * @param mailAddress is his mail address
      *  @param username is the username of the employee
      * @param password: his password
-     * @param type is his type
+     * @param function is his function
      * **/
     public Employee(int registrationNumber, String lastname, String firstname,
 
                     char gender, String birthdate, String mailAddress, String username,
-                    String password, String type) {
+                    String password, String function) {
 
         this(registrationNumber, lastname,firstname, gender,
-                birthdate, mailAddress, null,  username, password,type);
+                birthdate, mailAddress, null,  username, password, function);
 
 
     }
@@ -212,8 +212,8 @@ public class Employee implements IEmployee {
     public  String getPassword(){
         return  Password;
     }
-    /**@return  the type of the employee**/
-    public String getType(){ return Type;}
+    /**@return  the function of the employee**/
+    public String getFunction(){ return Function;}
     /**@return  the workdays of the employee**/
     public byte[] getWorkdays() {
         return Workdays;
@@ -314,10 +314,10 @@ public class Employee implements IEmployee {
     public void setPicture(byte[] picture) {
         Picture = picture;
     }
-    /**Sets type to employee
-     * @param type: the type of the employee**/
-    public void setType(String type){
-        Type=type;
+    /**Sets function to employee
+     * @param function: the function of the employee**/
+    public void setFunction(String function){
+        Function = function;
     }
     /**Sets username to employee
      * @param username: the username of the employee**/

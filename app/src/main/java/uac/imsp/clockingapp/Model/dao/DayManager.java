@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteStatement;
 
 import androidx.annotation.NonNull;
 
+import java.util.Objects;
+
 import dbAdapter.DaySQLite;
 import entity.Day;
 
@@ -55,6 +57,8 @@ public class DayManager {
             day.setId(id);
 
     }
+    
+    
     public int search(@NonNull Day day){
         int id=0;
         String query="SELECT id_jour FROM jour WHERE date_jour=? ";
@@ -69,9 +73,24 @@ public class DayManager {
     }
 
 
+    public void setHoliday(@NonNull Day day) {
+        String query="UPDATE jour SET ferie=? WHERE id_jour=?";
+        SQLiteStatement statement=Database.compileStatement(query);
+        statement.bindString(1,"true");
+        statement.bindLong(2,day.getId());
+        statement.executeInsert();
 
+    }
 
+    public boolean isHoliday(@NonNull Day day) {
+        boolean isHoliday;
+        String query="SELECT ferie FROM jour WHERE id_jour=? ";
+        String [] sel={String.valueOf(day.getId())};
+        Cursor cursor=Database.rawQuery(query,sel);
+        cursor.moveToFirst();
+        isHoliday= Objects.equals(cursor.getString(0), "true");
+        cursor.close();
+        return isHoliday;
 
-
-
+    }
 }

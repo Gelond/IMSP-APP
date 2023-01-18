@@ -10,11 +10,13 @@ import static dbAdapter.DaySQLite.COPY_DAY_TEMP_TO_DAY;
 import static dbAdapter.DaySQLite.CREATE_DAY;
 import static dbAdapter.DaySQLite.DROP_DAY_TEMP;
 import static dbAdapter.PlanningSQLite.ALTER_PLANNING_TO_PLANNING_TEMP;
+import static dbAdapter.PlanningSQLite.COL_ID_PLANNING;
 import static dbAdapter.PlanningSQLite.COPY_PLANNING_TEMP_TO_PLANNING;
 import static dbAdapter.PlanningSQLite.CREATE_PLANNING;
 import static dbAdapter.PlanningSQLite.DROP_PLANNING_TEMP;
 import static dbAdapter.PlanningSQLite.planning;
 import static dbAdapter.ServiceSQLite.ALTER_SERVICE_TO_PLANNING_TEMP;
+import static dbAdapter.ServiceSQLite.COL_ID_SERVICE;
 import static dbAdapter.ServiceSQLite.COPY_SERVICE_TEMP_TO_SERVICE;
 import static dbAdapter.ServiceSQLite.CREATE_SERVICE;
 import static dbAdapter.ServiceSQLite.DROP_SERVICE_TEMP;
@@ -29,35 +31,64 @@ import androidx.annotation.NonNull;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+/** Represents a database adapter for employee table.
+ *<br/>
+ * Allow to configure employee's table<br/>
+ * Proposes methods to create,delete and upgrage database<br/>
+ * @author Ezéchiel G. ADEDE
+ * @version 1.0
+ * @since 2023*/
 
 public class EmployeeSQLite extends SQLiteOpenHelper {
 
+    /**Represents the name of the database **/
     public static final String DATABASE_NAME = "Clocking_database.db";
-    public static final int DATABASE_VERSION = 2;
+    /**Represents the version of the database **/
+    public static final int DATABASE_VERSION = 1;
 
+    /**Represents the name of employee's table **/
     public static final String TABLE_EMPLOYE = "employe";
+    /**Represents temp employee's table **/
     public static final String EMPLOYEE_TEMP = "employe_temp";
-
+    /**Represents the registration number column **/
     public static final String COL_MATRICULE = "matricule";
-    public static final String COL_NOM = "nom";
-    public static final String COL_PRENOM = "prenom";
-    public static final String COL_SEXE = "sexe";
-    public static final String COL_BIRTHDATE = "birthdate";
-    public static final String COL_EMAIL = "couriel";
-    public static final String COL_PHOTO = "photo";
-    public static final String COL_USERNAME = "username";
+    /**Represents the employee's lastname column **/
+    private static final String COL_NOM = "nom";
+    /**Represents the employee's firstname column **/
+    private static final String COL_PRENOM = "prenom";
+    /**Represents the employee's gender column **/
+    private static final String COL_SEXE = "sexe";
+    /**Represents the employee's birthdate column **/
+    private static final String COL_BIRTHDATE = "birthdate";
+    /**Represents the employee's mail address column **/
+    private static final String COL_EMAIL = "couriel";
+    /**Represents the employee's picture column **/
+    private static final String COL_PHOTO = "photo";
+    /**Represents the employee's username column **/
+    private static final String COL_USERNAME = "username";
+    /**Represents the employee's password column **/
     public static final String COL_PASSWORD = "password";
-    public static final String COL_TYPE = "type";
-    public static final String COL_ADD_DATE = "date_ajout";
+
+    /**Represents the employee's function column **/
+    private static final String COL_FUNCTION = "type";
+    /**Represents the employee's add date column **/
+    private static final String COL_ADD_DATE = "date_ajout";
+    /**Represents the employee's planning id ref column **/
     public static final String COL_ID_PLANNING_REF = "id_planning_ref";
-    public static final String COL_ID_PLANNING = "id_planning";
+
+    /**Represents the service's id ref column **/
     private static final String COL_ID_SERVICE_REF = "id_service_ref";
-    private static final String COL_ID_SERVICE = "id_service";
+
+   // private static final String COL_ID_SERVICE = "id_service";
+    /**Represents the employee's current attendaance status column **/
     private static final String COL_STATUS = "statut";
+
+    /**Represents the employee's admin column **/
     private static final String COL_IS_ADMIN = "est_admin";
+    /**Represents the variable to store last update **/
     private static final String TABLE_VARIABLE = "variable";
 
-
+    /**Represents the super user insertion query **/
     public static final String super_user = "INSERT INTO employe(matricule," +
             "username,password,type,sexe,couriel,id_service_ref," +
             "id_planning_ref,nom,prenom,birthdate,date_ajout,est_admin)" +
@@ -65,11 +96,13 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
 
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,DATE('NOW','LOCALTIME'),?)";
 
-
+    /**Represents  variable's table  creation query**/
     public static final String CREATE_VARIABLE = "CREATE  TABLE IF NOT EXISTS variable" +
             " AS SELECT '1970-01-01' AS last_update ";
+    /**Represents  employee's table  rename query**/
     public static final String ALTER_EMPLOYEE_TO_EMPLOYEE_TEMP = "ALTER TABLE EMPLOYE" +
             " RENAME TO " + EMPLOYEE_TEMP;
+    /**Represents  employee's table  creation query**/
     public static final String CREATE_EMPLOYEE = "CREATE TABLE  IF NOT EXISTS " + TABLE_EMPLOYE + " (" +
             COL_MATRICULE + " INTEGER NOT NULL  PRIMARY KEY, " +
             COL_NOM + " TEXT NOT NULL ," +
@@ -81,10 +114,9 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
             COL_USERNAME + " TEXT UNIQUE NOT NULL ," +
             COL_PASSWORD + " TEXT NOT NULL , " +
             COL_IS_ADMIN + " TEXT DEFAULT 'false'," +
-            COL_TYPE + " TEXT DEFAULT 'Simple', " +
+            COL_FUNCTION + " TEXT DEFAULT 'Simple', " +
             COL_ID_PLANNING_REF + " INTEGER  , " +
             COL_ID_SERVICE_REF + " INTEGER   ," +
-
             COL_STATUS + " TEXT DEFAULT 'Hors Service', " +
             COL_ADD_DATE + " TEXT ," +
             " FOREIGN KEY(" + COL_ID_SERVICE_REF +
@@ -93,21 +125,28 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
             " ) REFERENCES planning(" + COL_ID_PLANNING + " )" +
             ")";
 
-
-    public static final String COPY_EMPLOYE_TEMP_TO_EMPLOYE = "INSERT INTO " + TABLE_EMPLOYE + " SELECT * FROM  " + EMPLOYEE_TEMP;
-
-    //public static final String DROP_EMPLOYEE="DROP TABLE IF EXISTS "+TABLE_EMPLOYE;
+    /**Represents  employee's table  copy query**/
+    public static final String COPY_EMPLOYE_TEMP_TO_EMPLOYE = "INSERT INTO " +
+            TABLE_EMPLOYE + " SELECT * FROM  " + EMPLOYEE_TEMP;
+    /**Represents  employee temp's table drop query**/
     public static final String DROP_EMPLOYEE_TEMP = "DROP TABLE IF EXISTS " + EMPLOYEE_TEMP;
     //public  static final String DROP_TEMP="DROP TABLE IF EXISTS "+ TABLE_VARIABLE;
 
-
+    /**Represents  variable's table temp  **/
     private static final String TABLE_VARIABLE_TEMP = TABLE_VARIABLE + "TEMP";
+    /**Represents  variable's table drop query**/
     public static final String DROP_VARIABLE_TEMP="DROP TABLE  IF EXISTS "+TABLE_VARIABLE_TEMP;
+    /**Represents  variable's table  rename query**/
     public static final String ALTER_VARIABLE_TO_VARIABLE_TEMP = "ALTER TABLE " + TABLE_VARIABLE +
             " RENAME TO " + TABLE_VARIABLE_TEMP;
+    /**Represents  variable's table  creation query**/
     public static final String COPY_VARIABLE_TEMP_TO_VARIABLE = "INSERT INTO " + TABLE_VARIABLE + " SELECT * FROM  " + TABLE_VARIABLE_TEMP;
 
-
+    /** A constructor of employee sqlite: it allow to configure database and
+     * employee table initial data at the first run
+     *  with the given  service name
+     * @param context is the application's context
+     */
     public EmployeeSQLite(Context context) {
 
 
@@ -115,7 +154,8 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
 
     }
 
-
+    /**Called on the creation of the database
+     * @param db represents the database object**/
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -123,8 +163,11 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
         createDatabase(db);
 
     }
+    /**Contains instructions to upgrade database
+     *  without losting the old daa within
 
-    public void upgradeDatabase(@NonNull SQLiteDatabase db) {
+     * @param db represents the database object**/
+    public  static void upgradeDatabase(@NonNull SQLiteDatabase db) {
 
         db.execSQL(ALTER_EMPLOYEE_TO_EMPLOYEE_TEMP);
         db.execSQL(CREATE_EMPLOYEE);
@@ -159,7 +202,10 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
     }
 
 
-    public void createDatabase(@NonNull SQLiteDatabase db) {
+    /**Contains instructions to create each table of the
+     *database and to insert initial data
+     * @param db represents the database object**/
+    public static void createDatabase(@NonNull SQLiteDatabase db) {
         db.execSQL(CREATE_SERVICE);
         db.execSQL(CREATE_PLANNING);
         db.execSQL(CREATE_DAY);
@@ -222,7 +268,8 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
         statement.executeInsert();
 
     }
-
+    /**Called on the upgrade of the database
+     * @param db represents the database object**/
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -230,8 +277,11 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
 
 
     }
-
-    public String getMd5(@NonNull String password) {
+    /**md5 algorithm: used to encrypt password
+     *  before inserting into database
+     * @param password represents the password to be encrypted**/
+    @NonNull
+    public  static String getMd5(@NonNull String password) {
 
         try {
 
@@ -246,11 +296,11 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
             BigInteger no = new BigInteger(1, messageDigest);
 
             // Convert message digest into hex value
-            String hashtext = no.toString(16);
+            StringBuilder hashtext = new StringBuilder(no.toString(16));
             while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
+                hashtext.insert(0, "0");
             }
-            return hashtext;
+            return hashtext.toString();
         }
 
         // For specifying wrong message digest algorithms

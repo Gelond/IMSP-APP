@@ -133,7 +133,7 @@ public class RegisterEmployeeTest  implements IRegisterEmployeeView {
        employeeManager.open();
        assertNotNull(employeeManager);
        assertTrue(employeeManager.exists(employee));
-       employeeManager.setInformationsWithoutPiture(employee);
+       employeeManager.setInformationsWithoutPicture(employee);
        assertNotNull(employee.getLastname());
        assertNotNull(employee.getFirstname());
        assertNotNull(employee.getBirthdate());

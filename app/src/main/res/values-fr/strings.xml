@@ -230,7 +230,7 @@
     <string name="share">Partager</string>
     <string name="fingerprint">Scannez votre empreinte pour marquer votre entrée ou sortie</string>
     <string name="confirm_login">Voulez-vous vous connecter en tant qu\'administrateur\?</string>
-    <string name="confirm_login_title">Choix du type de connexion</string>
+    <string name="confirm_login_title">Choix du function de connexion</string>
     <string name="yes" >Oui</string>
     <string name="no" >Non</string>
     <string name="required" >Requis \!</string>

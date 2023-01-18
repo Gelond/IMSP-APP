@@ -107,7 +107,7 @@ public class EmployeeManager {
         statement.bindString(5, employee.getMailAddress());
         statement.bindString(6, employee.getUsername());
         statement.bindString(7, getMd5(employee.getPassword()));
-        statement.bindString(8, employee.getType());
+        statement.bindString(8, employee.getFunction());
         statement.bindString(9, "NOW");
         statement.bindString(10, "LOCALTIME");
         statement.bindString(11, employee.isAdmin()?"true":"false");
@@ -308,6 +308,26 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         return test;
     }
 
+    public void holiday( @NonNull Day day) {
+        SQLiteStatement statement;
+        String query;
+        Employee[] employees=search("*");
+        query = "UPDATE  pointage SET statut=?" +
+                " WHERE matricule_ref=? AND id_jour_ref=? ";
+        statement = Database.compileStatement(query);
+        statement.bindString(1,"Férié");
+        statement.bindLong(3, day.getId());
+        for(Employee emp:employees) {
+            statement.bindLong(2, emp.getRegistrationNumber());
+            statement.executeUpdateDelete();
+        }
+
+
+
+
+
+    }
+
     public boolean emailExists(@NonNull Employee employee) {
 
         boolean test;
@@ -340,7 +360,7 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
             employee.setFirstname(cursor.getString(1));
             employee.setGender(cursor.getString(2).charAt(0));
             employee.setPicture(cursor.getBlob(3));
-            employee.setType(cursor.getString(4));
+            employee.setFunction(cursor.getString(4));
             employee.setMailAddress(cursor.getString(5));
             employee.setUsername(cursor.getString(6));
             employee.setBirthdate(cursor.getString(7));
@@ -357,7 +377,7 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
     }
 
 
-    public void setInformationsWithoutPiture(@NonNull Employee employee) {
+    public void setInformationsWithoutPicture(@NonNull Employee employee) {
 
         String query;
         String[] selectArgs;
@@ -376,7 +396,7 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
             employee.setLastname(cursor.getString(0));
             employee.setFirstname(cursor.getString(1));
             employee.setGender(cursor.getString(2).charAt(0));
-            employee.setType(cursor.getString(3));
+            employee.setFunction(cursor.getString(3));
             employee.setMailAddress(cursor.getString(4));
             employee.setUsername(cursor.getString(5));
             employee.setBirthdate(cursor.getString(6));
@@ -600,6 +620,8 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
     }
 
+
+
     public int getStatus(@NonNull Employee employee, @NonNull Day day){
         String status,exitTime = null;
         int index = -1;
@@ -631,6 +653,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         
       else   if(Objects.equals(status, "Retard"))
             index=2;
+
+        else   if(Objects.equals(status, "Férié"))
+            index=5;
       
         return index;
 
@@ -686,4 +711,8 @@ public String selectVariable(){
 
     }
 
+    public void initDayAttendance(@NonNull Employee[] employees, String status, Day day) {
+        for(Employee employee:employees)
+            initDayAttendance(employee,status,day);
+    }
 }

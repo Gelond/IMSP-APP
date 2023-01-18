@@ -78,7 +78,7 @@ public class DeleteEmployeeController implements IDeleteEmployeeController {
     informations.put("gender",employee.getGender());
 
 
-        informations.put("type",employee.getType());
+        informations.put("type",employee.getFunction());
         informations.put("service",service.getName());
         informations.put("start",Integer.parseInt(Objects.requireNonNull(planning.extractHours().get("start"))));
         informations.put("end",Integer.parseInt(Objects.requireNonNull(planning.extractHours().get("end"))));

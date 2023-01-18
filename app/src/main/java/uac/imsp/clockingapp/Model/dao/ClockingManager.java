@@ -71,6 +71,8 @@ public class ClockingManager {
 
 /**j*/
     public void clockIn(@NonNull Employee employee, @NonNull Day day, String time) {
+
+
         String attendedEntryTime;
         String currentEntryTime;
         int id;
@@ -105,22 +107,6 @@ public class ClockingManager {
 
     }
 
-    /*public void update(Employee employee, String status,String date){
-
-    }
-
-    public void updateDailyAttendance(@NonNull Employee employee, String status){
-
-        String query="UPDATE pointage SET statut=?" +
-                " WHERE matricule_ref=? AND date_jour=STRFTIME('%H:%M', ?,?)";
-        SQLiteStatement statement=Database.compileStatement(query);
-        statement.bindString(1,status);
-        statement.bindLong(2,employee.getRegistrationNumber());
-        statement.bindString(3,"NOW");
-        statement.bindString(4,"LOCALTIME");
-        statement.executeUpdateDelete();
-
-    }*/
 
     //for clocking out
     public void clockOut(@NonNull Employee employee, @NonNull Day day) {
