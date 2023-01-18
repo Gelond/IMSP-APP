@@ -82,11 +82,11 @@
     <string name="confirm_new_password">Confirm the new password</string>
     <string name="new_password">New password</string>
     <string name="modify">Update</string>
-    <string-array name="employee_types">
+    <!--string-array name="employee_types">
         <item>Simple</item>
         <item>Director</item>
         <item>Personal chef</item>
-    </string-array>
+    </string-array-->
     <string-array name="days">
         <item>Monday</item>
         <item>Tuesday</item>

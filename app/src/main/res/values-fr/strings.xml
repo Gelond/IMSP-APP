@@ -129,11 +129,11 @@
     <string name="new_password">Nouveau mot de passe</string>
     <string name="modify">Modifier</string>
 
-    <string-array name="employee_types">
+    <!--string-array name="employee_types">
         <item>Simple</item>
         <item>Directeur</item>
         <item>Chef personnel</item>
-    </string-array>
+    </string-array-->
 
     <string-array name="days">
         <item>Lundi</item>

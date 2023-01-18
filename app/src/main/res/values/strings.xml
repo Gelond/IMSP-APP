@@ -115,13 +115,6 @@
     <string name="save_fingerprint">Enreisterer des empreintes</string>
     <string name="notification_title">Notification de mise à jour d\'employé</string>
     <string name="notification">Certaines de vos informations ont été modifiées</string>
-
-    <string-array name="employee_types">
-        <item>Simple</item>
-        <item>Directeur</item>
-        <item>Chef personnel</item>
-    </string-array>
-
     <string-array name="days">
         <item>Lundi</item>
         <item>Mardi</item>

@@ -30,7 +30,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:entries="@array/employee_types"
+        android:entries="@array/status"
         android:spinnerMode="dialog" />
 
 
