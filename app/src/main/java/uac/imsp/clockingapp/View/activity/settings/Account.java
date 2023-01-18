@@ -27,6 +27,7 @@ public class Account extends AppCompatActivity implements View.OnClickListener,
 	Button changePassword,update;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_account);
 		// calling the action bar

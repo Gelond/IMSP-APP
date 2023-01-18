@@ -51,6 +51,7 @@ public class ConsultStatisticsByEmployee extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consult_statistics_by_employee);
         // calling the action bar

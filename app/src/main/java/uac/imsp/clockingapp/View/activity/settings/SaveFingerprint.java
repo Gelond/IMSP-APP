@@ -21,6 +21,7 @@ public class SaveFingerprint extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savefingerprint);
 

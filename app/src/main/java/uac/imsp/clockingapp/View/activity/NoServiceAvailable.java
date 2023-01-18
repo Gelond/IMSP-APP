@@ -12,6 +12,7 @@ public class NoServiceAvailable extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_service_available);
         // calling the action bar

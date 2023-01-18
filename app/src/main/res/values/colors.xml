@@ -40,6 +40,27 @@
     <color name="red">#D81B60</color>
         <color name="bar">#ffff8800</color>
 
+    <!--color name="darkPrimary">#303F9F</color>
+    <color name="darkPrimaryDark">#000000</color>
+    <color name="darkAccent">#FF4081</color>
+    <color name="darkBackground">#303030</color>
+    <color name="darkTextPrimary">#FFFFFF</color>
+    <color name="darkTextSecondary">#BDBDBD</color-->
+
+    <!-- Dark mode colors -->
+    <color name="darkPrimary">#000000</color>
+    <color name="darkPrimaryDark">#000000</color>
+    <color name="darkAccent">#FFFFFF</color>
+    <color name="darkBackground">#121212</color>
+    <color name="darkTextPrimary">#FFFFFF</color>
+    <color name="darkTextSecondary">#BDBDBD</color>
+
+    <color name="darkStatusBar">#000000</color>
+    <color name="darkNavigationBar">#000000</color>
+    <color name="darkTextLink">#bdbdbd</color>
+    <color name="darkTextHighlight">#bdbdbd</color>
+
+
 
 
 </resources>

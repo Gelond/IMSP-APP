@@ -44,6 +44,7 @@ public class SearchEmployee extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_search_employee);

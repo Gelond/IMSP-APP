@@ -35,6 +35,7 @@ public class Clocking extends AppCompatActivity
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_clocking);
 		ActionBar actionBar = getSupportActionBar();

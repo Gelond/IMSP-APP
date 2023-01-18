@@ -79,6 +79,7 @@ public class RegisterEmployee extends AppCompatActivity
     @SuppressLint({"DefaultLocale", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_employee);

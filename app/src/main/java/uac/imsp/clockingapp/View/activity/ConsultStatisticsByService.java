@@ -50,6 +50,7 @@ implements IConsultStatisticsByServiceView, AdapterView.OnItemSelectedListener,
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
+            setTheme(R.style.DarkTheme);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_consult_statistic_by_service);
             // calling the action bar

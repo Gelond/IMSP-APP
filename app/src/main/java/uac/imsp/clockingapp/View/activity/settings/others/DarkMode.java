@@ -29,14 +29,15 @@ public class DarkMode extends AppCompatActivity
 	boolean isChecked;
 	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
-			finish();
-			onBackPressed();
+			//finish();
+			//onBackPressed();
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		darkModePresenter=new DarkModeController(this);
 		setContentView(R.layout.activity_dark_mode);
@@ -52,14 +53,15 @@ public class DarkMode extends AppCompatActivity
 	}
 	public void initView(){
 darkMode=findViewById(R.id.dark_mode);
-darkMode.setOnCheckedChangeListener(this);
+//darkMode.setOnCheckedChangeListener(this);
 	}
 	public void retrieveSharedPreferences(){
 		preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
 				Context.MODE_PRIVATE);
 		editor=preferences.edit();
 
-DarkMode=preferences.getBoolean("darkMode",false);
+       DarkMode=preferences.getBoolean("dark",true);
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 	}
 
 	@Override
@@ -73,14 +75,16 @@ if(buttonView.getId()==R.id.dark_mode)
 
 	}
 
+
 	@Override
 	public void onDarkMode() {
-		editor.putBoolean("darkMode",isChecked);
+		editor.putBoolean("dark",isChecked);
 		if(isChecked)
 		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 		else
 			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 		editor.apply();
+		recreate();
 		//restartApp();
 
 

@@ -26,6 +26,7 @@ public class SimpleEmployeeSettings extends AppCompatActivity
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_simple_employee_settings);
 		simpleEmployeeSettingsPresenter=new SimpleEmployeeSettingsController(this);

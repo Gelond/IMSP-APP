@@ -31,6 +31,7 @@ public class SetUp extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         final String PREFS_NAME="MyPrefsFile";
         preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor=preferences.edit();

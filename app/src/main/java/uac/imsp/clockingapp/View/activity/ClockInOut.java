@@ -65,6 +65,7 @@ public class ClockInOut extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();

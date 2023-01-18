@@ -40,6 +40,7 @@ public class Languages extends AppCompatActivity implements ILanguagesView,
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_languages);
 		ActionBar actionBar = getSupportActionBar();

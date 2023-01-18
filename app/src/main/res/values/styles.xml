@@ -35,6 +35,22 @@
     </style>
 
 
+    <style name="DarkTheme" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/darkPrimary</item>
+        <item name="colorPrimaryDark">@color/darkPrimaryDark</item>
+        <item name="colorAccent">@color/darkAccent</item>
+        <item name="android:windowBackground">@color/darkBackground</item>
+        <item name="android:textColorPrimary">@color/darkTextPrimary</item>
+        <item name="android:textColorSecondary">@color/darkTextSecondary</item>
+        <item name="android:statusBarColor">@color/darkStatusBar</item>
+        <item name="android:navigationBarColor">@color/darkNavigationBar</item>
+        <item name="android:textColorLink">@color/darkTextLink</item>
+        <item name="android:textColorHighlight">@color/darkTextHighlight</item>
+    </style>
+
+
+
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

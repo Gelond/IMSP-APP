@@ -85,6 +85,7 @@ public class UpdateEmployee extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_employee);
         // calling the action bar

@@ -58,6 +58,7 @@ public class Services extends AppCompatActivity implements IServicesView,
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		final String PREFS_NAME="MyPrefsFile";
 		preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		editor=preferences.edit();

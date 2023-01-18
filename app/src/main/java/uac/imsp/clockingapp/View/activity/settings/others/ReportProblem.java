@@ -19,6 +19,7 @@ public class ReportProblem extends AppCompatActivity {
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_problem);
 		ActionBar actionBar = getSupportActionBar();
