@@ -9,6 +9,20 @@
 
         <Button
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/view_holidays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shapelogin"
+            android:backgroundTint="@color/colorPrimary"
+            android:padding="10dp"
+            android:shadowColor="@android:color/transparent"
+            android:text="@string/see_holidays"
+            />
+
+
+        <Button
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +36,6 @@
             android:padding="10dp"
             android:shadowColor="@android:color/transparent"
             android:text="@string/add"
-
             />
 
 

@@ -17,6 +17,10 @@
         <activity
             android:name=".View.activity.settings.Holiday"
             android:exported="false" />
+
+
+
+
         <activity
             android:name=".View.activity.settings.PersonalInformations"
             android:exported="false"

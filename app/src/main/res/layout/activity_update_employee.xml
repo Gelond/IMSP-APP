@@ -163,21 +163,22 @@
 
             <TextView
                 android:textSize="18sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/latoregular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
-                android:text="@string/register_employe_type_text" />
+                android:textColor="@color/black"
+                android:fontFamily="@font/latoregular"
+                android:text="@string/register_employe_function_text" />
 
-            <Spinner
-                android:id="@+id/register_type"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/register_function"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:entries="@array/employee_types"
-                android:spinnerMode="dialog" />
+                android:layout_marginStart="3dp"
+                android:ems="10"
+                android:inputType="textAutoComplete"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
 
             <TextView

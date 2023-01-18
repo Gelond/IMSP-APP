@@ -4,4 +4,8 @@ public interface IHolidayView {
 	void isHoliday();
 
 	void update();
+
+	void onConsultHolidays(String fileName);
+
+	void onNoAppFound();
 }

@@ -50,20 +50,20 @@ public class UpdateEmployee extends AppCompatActivity
     private EditText Email;
     private String outgoingMail;
     private TextView Programm;
-    private String selectedService, selectedType, provisionalService, provisionalType;
-    private Spinner spinnerTypes, spinnerServices;
+    private String selectedService, function, provisionalService, provisionalFunction;
+    private Spinner  spinnerServices;
     private CircleImageView image;
     private Bitmap picture;
     CheckBox monday, tuesday, wednesday, thursday, friday, satursday, sunday;
     private Integer Start, End;
-    private String outgoingType, outgoingService;
+    private String outgoingFunction, outgoingService;
     private boolean pictureUpdated, planningUpdated,
-            typeUpdated, serviceUpdated,
+            functionUpdated, serviceUpdated,
             emailUpdated;
     private byte[] WorkDays;
     private CheckBox[] myTable;
 
-    EditText number ,lastname,firstname ,username, birthdate;
+    EditText number ,lastname,firstname ,username, birthdate,Function;
     NumberPicker start ,end ;
     RadioGroup gender;
 
@@ -111,8 +111,8 @@ public class UpdateEmployee extends AppCompatActivity
                 emailUpdated = true;
             if (!Objects.equals(outgoingService, provisionalService))
                 serviceUpdated = true;
-            if (!Objects.equals(outgoingType, provisionalType))
-                typeUpdated = true;
+            if (!Objects.equals(outgoingFunction, provisionalFunction))
+                functionUpdated = true;
             WorkDays = workDays();
             if (Start != outgoingStart || outgoingEnd != End ||
                    !Arrays.equals(WorkDays, outgoingWorkDays))
@@ -123,11 +123,11 @@ public class UpdateEmployee extends AppCompatActivity
             updateEmployeePresenter.onUpdateEmployee(
                     emailUpdated, serviceUpdated,
 
-                    planningUpdated, pictureUpdated, typeUpdated);
+                    planningUpdated, pictureUpdated, functionUpdated);
 
         } else if (v.getId() == R.id.register_reset_button) {
             updateEmployeePresenter.onReset();
-            provisionalType = selectedType;
+            provisionalFunction = function;
             provisionalService = selectedService;
         } else if (v.getId() == R.id.register_picture_button)
 
@@ -152,9 +152,7 @@ public class UpdateEmployee extends AppCompatActivity
             selectedService= parent.getItemAtPosition(position).toString();
 
 
-        } else if (spinnerTypes.getId() == R.id.register_type)
-            selectedService = (String) parent.getItemAtPosition(position);
-
+        }
 
     }
 
@@ -168,6 +166,7 @@ public class UpdateEmployee extends AppCompatActivity
 
         number = findViewById(R.id.register_number);
         Email = findViewById(R.id.register_email);
+        Function=findViewById(R.id.register_function);
          firstname = findViewById(R.id.register_firstname);
          lastname=findViewById(R.id.register_lastname);
          username = findViewById(R.id.register_username);
@@ -183,8 +182,6 @@ public class UpdateEmployee extends AppCompatActivity
 
         Programm = findViewById(R.id.prog);
         spinnerServices = findViewById(R.id.register_service);
-        spinnerTypes = findViewById(R.id.register_type);
-
         monday = findViewById(R.id.monday);
         tuesday = findViewById(R.id.tuesday);
         wednesday = findViewById(R.id.wednesday);
@@ -213,7 +210,6 @@ public class UpdateEmployee extends AppCompatActivity
         update.setOnClickListener(this);
         selectPicture.setOnClickListener(this);
         spinnerServices.setOnItemSelectedListener(this);
-        spinnerTypes.setOnItemSelectedListener(this);
         //Formatters
         start.setFormatter(this);
         end.setFormatter(this);
@@ -244,14 +240,9 @@ pictureUpdated=false;
 emailUpdated=false;
 planningUpdated=false;
 serviceUpdated=false;
-typeUpdated=false;
+functionUpdated =false;
         int position;
         int actionNumber = getIntent().getIntExtra("ACTION_NUMBER", 1);
-
-
-        String[] employeTypes = getResources().getStringArray(R.array.employee_types);
-
-
         String[] services;
         Object[] tab;
         //try {
@@ -265,10 +256,10 @@ typeUpdated=false;
 
         selectedService = (String) informations.get("service");
         outgoingService = selectedService;
-        selectedType = (String) informations.get("type");
-        outgoingType = selectedType;
+        function = (String) informations.get("type");
+        outgoingFunction = function;
         provisionalService = selectedService;
-        provisionalType = selectedType;
+        provisionalFunction = function;
         initNumberPicker(start, 6, 9);
         initNumberPicker(end, 16, 19);
 
@@ -299,14 +290,11 @@ typeUpdated=false;
         position = dataAdapterR.getPosition(selectedService);
         spinnerServices.setSelection(position);
 
-        dataAdapterR = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, employeTypes);
+        
 
         dataAdapterR.setDropDownViewResource(android.R.layout.
                 simple_spinner_dropdown_item);
-        spinnerTypes.setAdapter(dataAdapterR);
-        position = dataAdapterR.getPosition(selectedType);
-        spinnerTypes.setSelection(position);
+
 
         if (informations.get("picture") != null)
             image.setImageBitmap((Bitmap) informations.get("picture"));
@@ -350,7 +338,7 @@ typeUpdated=false;
         emailUpdated=false;
         planningUpdated=false;
         serviceUpdated=false;
-        typeUpdated=false;
+        functionUpdated =false;
     }
 
     @Override
@@ -432,7 +420,6 @@ typeUpdated=false;
          if(notice)
         sendEmail(new String[]{Email.getText().toString().trim()},
                 getString(R.string.notification_title),getString(R.string.notification));
-//loadData();
 onRestart();
 
     }
@@ -481,7 +468,7 @@ onRestart();
                 .setPositiveButton(getString(R.string.yes), (dialog, which) ->
                         updateEmployeePresenter.onUpdateEmployee
                         (Email.getText().toString(),
-                        selectedService,Start,End,WorkDays,picture,selectedType))
+                        selectedService,Start,End,WorkDays,picture, function))
                 .setNegativeButton(getString(R.string.no), (dialog, which) -> loadData());
 
                 AlertDialog alert = builder.create();

@@ -336,6 +336,9 @@
     <string name="admin">admin</string>
     <string name="place_your_finger">Place your finger</string>
     <string name="fingerprint_description">Please,place your finger on the sensor to scan your fingerprint</string>
+    <string name="see_holidays">Consult holidays</string>
+    <string name="register_employe_function_text">Fonction de l\'employé</string>
+    <string name="holdays">Holidays</string>
 
 
     "Version du système d'exploitation:\n"+

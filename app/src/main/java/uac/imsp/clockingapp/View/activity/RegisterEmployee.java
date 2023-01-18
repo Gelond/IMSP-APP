@@ -63,7 +63,7 @@ public class RegisterEmployee extends AppCompatActivity
 {
     IRegisterEmployeeController registerEmployeePresenter;
 
-    private EditText Lastname, Firstname, Email, Username,
+    private EditText Lastname, Firstname, Email, Username,function,
             Password, PasswordConfirm,Number, Birthdate;
     private TextView Programm;
     private String Birth;
@@ -71,7 +71,7 @@ public class RegisterEmployee extends AppCompatActivity
     private CircleImageView circlePicture;
     private byte[] Picture;
     private String gend;
-    private String SelectedService,SelectedType;
+    private String SelectedService;
     private int Start=8,End=17;
 
     boolean editUsername,generatePassword,notice,showPassword;
@@ -91,7 +91,7 @@ public class RegisterEmployee extends AppCompatActivity
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
-// showing the back button in action bar
+       // showing the back button in action bar
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.general_menu_register);
@@ -240,10 +240,11 @@ public class RegisterEmployee extends AppCompatActivity
           days= workdays();
           username=toString(Username);
 
-            registerEmployeePresenter.onRegisterEmployee(toString(Number), toString(Lastname),
+          registerEmployeePresenter.onRegisterEmployee(toString(Number), toString(Lastname),
                     toString(Firstname),gend,Birth,toString(Email),username,
                     toString(Password),toString(PasswordConfirm),SelectedService,
-                    Start,End,Picture,SelectedType,days,((CheckBox)findViewById(R.id.admin)).isChecked());
+                    Start,End,Picture, toString(function),days,
+                    ((CheckBox)findViewById(R.id.admin)).isChecked());
 
 
 
@@ -257,8 +258,6 @@ public class RegisterEmployee extends AppCompatActivity
             int day = cldr.get(Calendar.DAY_OF_MONTH);
             int month = cldr.get(Calendar.MONTH);
             int year = cldr.get(Calendar.YEAR);
-
- //while(toString())
             picker = new DatePickerDialog(RegisterEmployee.this,
                     (view, year1, monthOfYear, dayOfMonth) -> {
 
@@ -308,15 +307,7 @@ public class RegisterEmployee extends AppCompatActivity
     @Override
     public void onItemSelected(@NonNull AdapterView<?> parent, View view, int position, long id) {
         if(parent.getId()==R.id.register_service) {
-            //SelectedService = String.valueOf(spinnerServices.getSelectedItem());
             SelectedService = parent.getItemAtPosition(position).toString();
-
-
-        }
-        else if(parent.getId()==R.id.register_type) {
-            //SelectedType=String.valueOf(spinnerTypes.getSelectedItem());
-            SelectedType = parent.getItemAtPosition(position).toString();
-
         }
 
     }
@@ -478,20 +469,12 @@ public class RegisterEmployee extends AppCompatActivity
         registerEmployeePresenter = new RegisterEmployeeController(this);
         // The view gets service list from the controller
         String[] services = registerEmployeePresenter.onLoad();
-        String[] employeTypes = getResources().getStringArray(R.array.employee_types);
-        SelectedType= employeTypes[0];
+
         SelectedService= services[0];
         Spinner spinnerServices = findViewById(R.id.register_service);
-        Spinner spinnerTypes = findViewById(R.id.register_type);
-
         ArrayAdapter<String> dataAdapterR = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, services);
         dataAdapterR.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerServices.setAdapter(dataAdapterR);
-
-         dataAdapterR = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, employeTypes);
-        dataAdapterR.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTypes.setAdapter(dataAdapterR);
-
 
         NumberPicker start = findViewById(R.id.register_planning_start_choose);
         NumberPicker end = findViewById(R.id.register_planning_end_choose);
@@ -508,6 +491,7 @@ public class RegisterEmployee extends AppCompatActivity
         Birthdate.setFocusable(false);
         Birthdate.setInputType(InputType.TYPE_NULL);
         Email = findViewById(R.id.register_email);
+        function=findViewById(R.id.register_function);
         Username = findViewById(R.id.register_username);
         Password = findViewById(R.id.register_password);
         PasswordConfirm = findViewById(R.id.register_password_confirm);
@@ -522,7 +506,7 @@ public class RegisterEmployee extends AppCompatActivity
         selectPicture.setOnClickListener(this);
 
         spinnerServices.setOnItemSelectedListener(this);
-        spinnerTypes.setOnItemSelectedListener(this);
+
 
         start.setFormatter(this);
         end.setFormatter(this);
