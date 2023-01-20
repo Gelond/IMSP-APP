@@ -12,7 +12,6 @@ public interface IMainSettingsController {
 	void onClearAppCache();
 	//About the establishment
 	void onName();
-	void onPicture();
 	void onService();
 	void onEmail();
 	void onClocking();
@@ -31,4 +30,6 @@ public interface IMainSettingsController {
 	void onReportProblem();
 
 	void onSwitch();
+
+	void onHolidays();
 }

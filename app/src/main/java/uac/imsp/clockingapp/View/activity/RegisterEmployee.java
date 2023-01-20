@@ -94,12 +94,7 @@ public class RegisterEmployee extends AppCompatActivity
         actionBar.setTitle(R.string.general_menu_register);
         retrieveSharedPreferences();
         initView();
-        if(genNum)
-        {
-         Number.setFocusable(false);
-         Number.setLongClickable(false);
-         Number.setText(String.valueOf(reg));
-        }
+
         if(!editUsername) {
             Username.setFocusable(false);
             Username.setLongClickable(false);
@@ -143,14 +138,15 @@ public class RegisterEmployee extends AppCompatActivity
         Random r = new Random();
         String  res=String.valueOf(str.charAt(r.nextInt(str.length())));
         res+=String.valueOf(str.charAt(r.nextInt(str.length())));
-        return shuffle(res);
+        return res;
     }
     public  String generatePassword (){
         String upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lower=upper.toLowerCase();
         String digits="0123456789";
         String specialChars ="&'(-)=}]@^`[#~%*+-:;,?.§";
-        return generateTwoChars(upper)+ generateTwoChars(lower)+ generateTwoChars(digits)+ generateTwoChars(specialChars);
+        return shuffle(generateTwoChars(upper)+ generateTwoChars(lower)+
+                generateTwoChars(digits)+ generateTwoChars(specialChars));
 
     }
     public void retrieveSharedPreferences(){
@@ -237,8 +233,11 @@ public class RegisterEmployee extends AppCompatActivity
                     Start,End,Picture, toString(function),days,
                     ((CheckBox)findViewById(R.id.admin)).isChecked());
         }
-        else if (v.getId() == R.id.register_reset_button)
-            resetInput();
+        else if (v.getId() == R.id.register_reset_button) {
+      //onStart();
+      finish();
+      startActivity(new Intent(this,RegisterEmployee.class));
+  }
         else if (v.getId() == R.id.register_birthdate) {
             final Calendar cldr = Calendar.getInstance();
             int day = cldr.get(Calendar.DAY_OF_MONTH);
@@ -303,7 +302,8 @@ public class RegisterEmployee extends AppCompatActivity
     @Override
     public void onRegisterEmployeeSuccess() {
         new ToastMessage(this,getString(R.string.registration_successful));
-        resetInput();
+        finish();
+        startActivity(new Intent(this,RegisterEmployee.class));
     }
     @Override
     public void onRegisterEmployeeError(int errorNumber) {
@@ -438,7 +438,7 @@ public class RegisterEmployee extends AppCompatActivity
 
     }
     public void initView(){
-
+        Number = findViewById(R.id.register_number);
         ImageView eyePwd = findViewById(R.id.register_show_password);
         ImageView eyePwdConfirm = findViewById(R.id.register_show_password_confirm);
         eyePwdConfirm.setOnClickListener(this);
@@ -450,8 +450,13 @@ public class RegisterEmployee extends AppCompatActivity
                 this);
 
         // The view gets service list from the controller
-        String[] services = registerEmployeePresenter.onLoad(reg);
+        String[] services = registerEmployeePresenter.onLoad();
+        if(genNum) {
+           reg= registerEmployeePresenter.askNumber();
+            Number.setText(String.valueOf(reg));
+            Number.setFocusable(false);
 
+        }
         SelectedService= services[0];
         Spinner spinnerServices = findViewById(R.id.register_service);
         ArrayAdapter<String> dataAdapterR = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, services);
@@ -464,7 +469,6 @@ public class RegisterEmployee extends AppCompatActivity
         end.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         Programm=findViewById(R.id.prog);
         Programm.setText(programm());
-        Number = findViewById(R.id.register_number);
         Lastname = findViewById(R.id.register_lastname);
         Firstname = findViewById(R.id.register_firstname);
         RadioGroup gender = findViewById(R.id.register_gender);

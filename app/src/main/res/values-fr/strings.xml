@@ -2,7 +2,7 @@
     <string name="change_orientation">Changer l\'orientation de la caméra</string>
     <string name="hint">par service, nom ou prénom</string>
     <string name="app_name" translatable="false">ClockingApp</string>
-
+    <string name="holidays">Holidays</string>
     <string name="form_title">Formulaire d\'enregistrement des employés</string>
     <string name="registration_title">Veillez saisir les informations de l\'employé</string>
     <string name="register_button">Enregistrer</string>

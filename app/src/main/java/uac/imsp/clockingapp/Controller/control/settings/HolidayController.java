@@ -1,5 +1,8 @@
 package uac.imsp.clockingapp.Controller.control.settings;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -19,6 +22,9 @@ public class HolidayController implements IHolidayController {
 	IHolidayView holidayView;
 	final String fileName="holidays";
 	private final Context context;
+	private BluetoothAdapter mBluetoothAdapter;
+	private BluetoothDevice mDevice;
+	private BluetoothSocket mSocket;
 	public HolidayController(IHolidayView holidayView){
 		this.holidayView=holidayView;
 		context=(Context) this.holidayView;
@@ -67,25 +73,30 @@ public class HolidayController implements IHolidayController {
 		Day day=new Day(date);
 		dayManager.open();
 		dayManager.create(day);
-		if(dayManager.isHoliday(day))
+		if(dayManager.isHoliday(day)) {
 			holidayView.isHoliday();
+			dayManager.close();
+		}
 		else
 		{
-			Runnable runnable= () -> {
 
-				dayManager.setHoliday(day);
+			Runnable runnable= () -> {
+			DayManager 	dayManager2=new DayManager(context);
+			dayManager2.open();
+				dayManager2.setHoliday(day);
 				EmployeeManager employeeManager=new EmployeeManager(context);
 				employeeManager.open();
 				employeeManager.holiday(day);
 				employeeManager.close();
 				d(day);
+				dayManager2.close();
 
 			};
 			AsyncTask.execute(runnable);
 			holidayView.update();
 
 		}
-		dayManager.close();
+
 	}
 
 	@Override

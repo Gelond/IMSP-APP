@@ -356,7 +356,7 @@ public class Employee implements IEmployee {
     /**Checks if an employee has a valid registration number or not
      * @return true if the registration number is invalid and false otherwise**/
     public boolean hasInvalidNumber(){
-        return !String.valueOf(RegistrationNumber).matches("^[0-9]+$");
+        return RegistrationNumber<=0;
 
 
     }

@@ -2,7 +2,7 @@ package uac.imsp.clockingapp.Controller.util;
 
 
 public interface IRegisterEmployeeController {
-    String[] onLoad(int gereratedNumber);
+    String[] onLoad();
     void onRegisterEmployee(String number,String lastname,String firstname,String Gender,
                             String Birthdate,String mail,
                             String Username,String Password,String passwordConfirm,
@@ -13,6 +13,7 @@ public interface IRegisterEmployeeController {
     void onShowHidePassword(int viewId,int eyeId);
 
 
+    int askNumber();
 }
 
 

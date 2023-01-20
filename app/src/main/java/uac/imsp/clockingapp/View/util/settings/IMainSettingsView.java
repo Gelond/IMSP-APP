@@ -21,4 +21,6 @@ public interface IMainSettingsView {
 	void onLogout();
 
 	void onSwitch();
+
+	void onHolidays();
 }

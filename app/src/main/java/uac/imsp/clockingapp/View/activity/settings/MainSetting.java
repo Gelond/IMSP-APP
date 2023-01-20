@@ -34,7 +34,7 @@ import uac.imsp.clockingapp.View.util.settings.IMainSettingsView;
 
 public class MainSetting extends AppCompatActivity implements View.OnClickListener, IMainSettingsView {
 TextView share,shareViaQR,overview,appVersion,clearCache,cacheSize,name,clock,dark,lang,problem,help,
-		email,desc,accountSettings,service,logout,simple;
+		email,desc,accountSettings,service,logout,simple,holiday;
 	EditText input;
 Intent intent;
 ConstraintLayout nameLayout;
@@ -85,6 +85,8 @@ IMainSettingsController mainSettingsPresenter;
 		overview=findViewById(R.id.setting_overview);
 		appVersion=findViewById(R.id.setting_version);
 		clearCache=findViewById(R.id.setting_clear_cache);
+		holiday=findViewById(R.id.setting_holidays);
+		holiday.setOnClickListener(this);
 
 
 		cacheSize=findViewById(R.id.setting_cache_size);
@@ -168,6 +170,8 @@ IMainSettingsController mainSettingsPresenter;
 	mainSettingsPresenter.onLogout();
 		else if(v.getId()==R.id.switch_to_simple)
 	mainSettingsPresenter.onSwitch();
+		else if(v.getId()==R.id.setting_holidays)
+			mainSettingsPresenter.onHolidays();
 
 }
 
@@ -196,8 +200,7 @@ IMainSettingsController mainSettingsPresenter;
 
 	@Override
 	public void onShareAppViaQRCode() {
-		intent=new Intent(this,ShareAppViaQRCode.class);
-		startActivity(intent);
+		startActivity(new Intent(this,ShareAppViaQRCode.class));
 
 	}
 
@@ -227,55 +230,50 @@ cacheSize.setText(String.format("%s Mo", cacheSizeValue));
 
 	@Override
 	public void onOverview() {
-		intent=new Intent(MainSetting.this,Overview.class);
-		startActivity(intent);
+		startActivity(new Intent(MainSetting.this,Overview.class));
 	}
 
 	@Override
 	public void onAccount() {
-intent=new Intent(MainSetting.this,ManageUsername.class);
-startActivity(intent);
+startActivity(new Intent(MainSetting.this,ManageUsername.class));
 	}
 
 	@Override
 	public void onService() {
-intent=new Intent(this, Services.class);
-startActivity(intent);
+
+     startActivity(new Intent(this, Services.class));
 	}
 
 
 	@Override
 	public void onClock() {
-		intent=new Intent(MainSetting.this, Clocking.class);
-		startActivity(intent);
+		startActivity(new Intent(MainSetting.this, Clocking.class));
 
 	}
 
 	@Override
 	public void onDark() {
-		intent=new Intent(MainSetting.this, DarkMode.class);
-		startActivity(intent);
+		startActivity(new Intent(MainSetting.this, DarkMode.class));
 
 	}
 
 	@Override
 	public void onLanguage() {
-		intent=new Intent(MainSetting.this, Languages.class);
-		startActivity(intent);
+
+		startActivity(new Intent(MainSetting.this, Languages.class));
 
 	}
 
 	@Override
 	public void onProblem() {
-		intent=new Intent(MainSetting.this, ReportProblem.class);
-		startActivity(intent);
+		startActivity(new Intent(MainSetting.this, ReportProblem.class));
 
 	}
 
 	@Override
 	public void onHelp() {
-		intent=new Intent(MainSetting.this, Help.class);
-		startActivity(intent);
+
+		startActivity(new Intent(MainSetting.this, Help.class));
 
 	}
 
@@ -302,6 +300,11 @@ startActivity((new Intent(this, SimpleEmployeeMenu.class)
 		).putExtra("CURRENT_USER",getIntent()
 		.getIntExtra("CURRENT_USER",0))
 );
+	}
+
+	@Override
+	public void onHolidays() {
+startActivity(new Intent(this,Holiday.class));
 	}
 
 	public void cacheSize(){

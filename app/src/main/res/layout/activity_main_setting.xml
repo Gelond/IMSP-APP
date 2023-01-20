@@ -244,7 +244,7 @@
                 android:layout_height="wrap_content" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
+        <!--TextView
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/setting_description_layout"
             android:layout_marginTop="15dp"
@@ -253,7 +253,7 @@
             android:text="@string/picture"
             android:id="@+id/setting_picture"
             android:layout_height="wrap_content"
-            app:drawableStartCompat="@drawable/ic_baseline_picture_in_picture_25" />
+            app:drawableStartCompat="@drawable/ic_baseline_picture_in_picture_25" /-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -293,10 +293,20 @@
             android:text="@string/more_parameters"
             android:id="@+id/setting_other_label"
             android:layout_height="wrap_content"/>
-
         <TextView
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/setting_other_label"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:text="@string/holidays"
+            android:id="@+id/setting_holidays"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/baseline_holiday_village_24" />
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_holidays"
             android:layout_marginTop="10dp"
             android:textSize="16sp"
             android:layout_width="wrap_content"
@@ -304,6 +314,8 @@
             android:id="@+id/setting_attendance"
             android:layout_height="wrap_content"
             app:drawableStartCompat="@drawable/ic_baseline_timer_25" />
+
+
         <TextView
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/setting_attendance"

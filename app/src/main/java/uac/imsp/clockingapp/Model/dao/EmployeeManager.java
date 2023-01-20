@@ -721,8 +721,7 @@ public String selectVariable(){
         String query = "SELECT matricule FROM employe";
 
         cursor = Database.rawQuery(query, null);
-        cursor.moveToFirst();
-        int [] regNumbers = new int[cursor.getColumnCount()];
+        int [] regNumbers = new int[cursor.getCount()];
         int i=0;
          while (cursor.moveToNext())
          {

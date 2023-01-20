@@ -71,11 +71,6 @@ mainSettingsView.onAccount();
 	}
 
 	@Override
-	public void onPicture() {
-
-	}
-
-	@Override
 	public void onService() {
 mainSettingsView.onService();
 	}
@@ -157,6 +152,12 @@ mainSettingsView.onService();
 	@Override
 	public void onSwitch() {
 		mainSettingsView.onSwitch();
+
+	}
+
+	@Override
+	public void onHolidays() {
+		mainSettingsView.onHolidays();
 
 	}
 

@@ -10,7 +10,7 @@
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Mot de passe</string>
     <string name="copied">Copié</string>
-
+    <string name="holidays">Holidays</string>
     <string name="simple_login">Connection effectuée</string>
 
 

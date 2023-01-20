@@ -4,7 +4,7 @@
     <string name="register_lastname_text">Lastname</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
-
+    <string name="holidays">Holidays</string>
 
     <string name="max_reached">Three failed authentication attempts!</string>
 <string name="switch_simple">Switch to simple employee account</string>

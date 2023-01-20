@@ -1,5 +1,6 @@
 package uac.imsp.clockingapp.Controller.control;
 
+import static java.util.Arrays.sort;
 import static entity.Employee.EMPTY_FIRSTNAME;
 import static entity.Employee.EMPTY_LASTNAME;
 import static entity.Employee.EMPTY_MAIL;
@@ -68,26 +69,13 @@ public class RegisterEmployeeController implements IRegisterEmployeeController
     }
 
     @Override
-    public String[] onLoad(int gereratedNumber) {
-       // String serviceLIst[]
+    public String[] onLoad() {
         serviceManager = new ServiceManager(context);
         serviceManager.open();
         String[] services = serviceManager.getAllServices();
 
         serviceManager.close();
-        EmployeeManager employeeManager=new EmployeeManager(context);
-        employeeManager.open();
-      int []  regNumbers=   employeeManager.getRegNumbers();
 
-        Random rand = new Random();
-        int randomNaturalNumber;
-        do {
-            randomNaturalNumber = rand.nextInt(100) + 1;
-
-            // generates a random number between 1 and 100 (inclusive)
-        }while(Arrays.binarySearch(regNumbers, randomNaturalNumber) >= 0);
-        gereratedNumber=randomNaturalNumber;
-        employeeManager.close();
         return services;
     }
 
@@ -140,7 +128,7 @@ String gend;
         catch (NumberFormatException e){
             
             
-            registerCode=EMPTY_NUMBER;
+            registerCode=INVALID_NUMBER;
 
         }
 
@@ -305,6 +293,26 @@ String gend;
     @Override
     public void onShowHidePassword(int viewId,int eyeId) {
 registerEmployeeView.onShowHidePassword(viewId, eyeId);
+    }
+
+    @Override
+    public int askNumber() {
+
+
+        EmployeeManager employeeManager=new EmployeeManager(context);
+        employeeManager.open();
+        int []  regNumbers=   employeeManager.getRegNumbers();
+        employeeManager.close();
+        sort(regNumbers);
+        Random rand = new Random();
+        int randomNaturalNumber;
+        do {
+            randomNaturalNumber = rand.nextInt(100) + 1;
+
+            // generates a random number between 1 and 100 (inclusive)
+        }while(Arrays.binarySearch(regNumbers, randomNaturalNumber) >= 0);
+
+        return randomNaturalNumber;
     }
 
     public   byte[] getBytesFromBitmap(Bitmap bitmap) {
