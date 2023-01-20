@@ -71,7 +71,7 @@ public class RegisterEmployee extends AppCompatActivity
     private String gend;
     private String SelectedService;
     private int Start=8,End=17;
-    boolean editUsername,generatePassword,notice,showPassword,genNum;
+    boolean editUsername,generatePassword,notice,showPassword,genNum,dark;
      CheckBox monday,tuesday,wednesday,thursday,friday,satursday,sunday;
     CheckBox[] myTable=new CheckBox[7];
     byte[] days=new byte[7];
@@ -79,7 +79,9 @@ public class RegisterEmployee extends AppCompatActivity
     @SuppressLint({"DefaultLocale", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_employee);
@@ -155,6 +157,7 @@ public class RegisterEmployee extends AppCompatActivity
         final  String PREFS_NAME="MyPrefsFile";
         SharedPreferences preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
         editUsername=preferences.getBoolean("editUsername",true);
         generatePassword=preferences.getBoolean("generatePassword",false);
         notice=preferences.getBoolean("notifyDuringAdd",true);

@@ -27,15 +27,16 @@ CompoundButton.OnCheckedChangeListener {
     SwitchMaterial showPassword;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    boolean GenPwd, EditUsername, EditPassword, Add, Update, Delete,genNum;
+    boolean GenPwd, EditUsername, EditPassword, Add, Update, Delete,genNum,dark;
     CheckBox add, update, delete, generatePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        retrieveSharedPreferences();
         setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_username);
-        retrieveSharedPreferences();
+
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
 // showing the back button in action bar
@@ -91,6 +92,7 @@ CompoundButton.OnCheckedChangeListener {
         final String PREFS_NAME = "MyPrefsFile";
         preferences = getApplicationContext().getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
         editor = preferences.edit();
         //EmailAsUsername=preferences.getBoolean("emailAsUsername",false);
         genNum=preferences.getBoolean("generateNumber",true);

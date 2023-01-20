@@ -70,6 +70,7 @@ public class UpdateEmployee extends AppCompatActivity
     private byte[]  outgoingWorkDays;
     private int outgoingStart, outgoingEnd;
     boolean notice;
+    boolean dark;
 
 
     IUpdateEmployeeController updateEmployeePresenter;
@@ -80,12 +81,15 @@ public class UpdateEmployee extends AppCompatActivity
         SharedPreferences preferences = getApplicationContext().getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
         notice = preferences.getBoolean("notifyDelete", true);
+        dark=preferences.getBoolean("dark",false);
 
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_employee);
         // calling the action bar

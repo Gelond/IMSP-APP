@@ -48,6 +48,7 @@ SharedPreferences preferences;
 	SharedPreferences.Editor editor;
 	String Mail,Name,Desc;
 	String prefs;
+	boolean Dark;
 
 IMainSettingsController mainSettingsPresenter;
 	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -57,9 +58,13 @@ IMainSettingsController mainSettingsPresenter;
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(Dark)
+		   setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_setting);
 		// calling the action bar
@@ -70,7 +75,7 @@ IMainSettingsController mainSettingsPresenter;
 		actionBar.setTitle(getString(R.string.settings));
 		mainSettingsPresenter=new MainSettingsController(this);
 		initView();
-		retrieveSharedPreferences();
+
 	}
 	public void initView(){
 		service=findViewById(R.id.setting_services);
@@ -116,7 +121,9 @@ IMainSettingsController mainSettingsPresenter;
 		share.setOnClickListener(this);
 		shareViaQR.setOnClickListener(this);
 		overview.setOnClickListener(this);
-
+		name.setText(Name);
+		email.setText(Mail);
+		desc.setText(Desc);
 
 
 	}
@@ -179,12 +186,11 @@ IMainSettingsController mainSettingsPresenter;
 	public void retrieveSharedPreferences(){
 		preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
 				Context.MODE_PRIVATE);
+		Dark=preferences.getBoolean("dark",false);
 		Name=preferences.getString("entrepriseName","");
 		Mail=preferences.getString("entrepriseEmail","");
 		Desc=preferences.getString("entrepriseDescription","");
-	name.setText(Name);
-	email.setText(Mail);
-	desc.setText(Desc);
+
 
 	}
 

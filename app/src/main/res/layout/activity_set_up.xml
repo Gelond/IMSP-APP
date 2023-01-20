@@ -36,16 +36,11 @@
         android:src="@drawable/time" />
 
     <Button
-        android:backgroundTint="@color/colorPrimary"
-        android:padding="15dp"
-        android:shadowColor="@android:color/transparent"
-        android:background="@drawable/shapelogin"
+        style="@style/my_button_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
         android:id="@+id/set_up_continue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/contin" />

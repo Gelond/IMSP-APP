@@ -39,10 +39,9 @@ implements View.OnClickListener  , IStartScreenView {
     protected void onCreate(Bundle savedInstanceState) {
 
         preferences = getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
-
-
         dark=preferences.getBoolean("dark",false);
-        setTheme(R.style.DarkTheme);
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         lang=preferences.getString("lang",Locale.getDefault().getLanguage());
         LocalHelper.changeAppLanguage(this,lang);
@@ -71,11 +70,6 @@ implements View.OnClickListener  , IStartScreenView {
        // initView();
 
 
-    }
-
-
-    public  void ifDark(){
-        setTheme(R.style.DarkTheme);
     }
 
 

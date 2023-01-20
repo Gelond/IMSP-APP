@@ -41,19 +41,6 @@
         android:text="@string/welcomes" />
 
 
-    <!--Button
-        android:id="@+id/start_screen_file_handler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="15dp"
-        android:shadowColor="@android:color/transparent"
-        android:background="@drawable/shapelogin"
-        android:text="Gestionnaire de fichiers"/-->
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:orientation="horizontal"
@@ -65,12 +52,8 @@
     android:layout_height="wrap_content">
     <Button
         android:id="@+id/start_screen_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/my_button_two"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/shapelogin"
-        android:padding="15dp"
-        android:shadowColor="@android:color/transparent"
         android:text="@string/login_button_text"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -78,13 +61,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/start_screen_clock_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/my_button_two"
         android:text="@string/menu_clock_button"
-        android:layout_gravity="center"
-        android:padding="15dp"
-        android:shadowColor="@android:color/transparent"
-        android:background="@drawable/shapelogin"/>
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

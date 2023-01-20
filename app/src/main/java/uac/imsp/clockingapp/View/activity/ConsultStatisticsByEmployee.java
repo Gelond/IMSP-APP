@@ -1,5 +1,7 @@
 package uac.imsp.clockingapp.View.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,11 +49,19 @@ public class ConsultStatisticsByEmployee extends AppCompatActivity
 
     // array list for storing entries.
     ArrayList<BarEntry> barEntriesArrayList;
-
+    boolean dark;
+    private void retrieveSharedPreferences() {
+        String PREFS_NAME="MyPrefsFile";
+        SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consult_statistics_by_employee);
         // calling the action bar

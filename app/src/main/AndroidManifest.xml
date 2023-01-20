@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme"
+
         tools:targetApi="31">
         <activity
             android:name=".View.activity.settings.Holiday"
@@ -46,7 +47,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".View.activity.Upgrage"
+            android:name=".View.activity.Upgrade"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

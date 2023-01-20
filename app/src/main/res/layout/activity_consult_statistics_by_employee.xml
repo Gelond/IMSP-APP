@@ -44,34 +44,22 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
+            style="@style/my_button_two"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/report_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="-10dp"
-            android:background="@drawable/shapelogin"
-            android:backgroundTint="@color/colorPrimary"
-            android:padding="10dp"
-            android:shadowColor="@android:color/transparent"
-
             android:text="@string/previous"
 
             />
 
         <Button
+            style="@style/my_button_two"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/report_next"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:background="@drawable/shapelogin"
-            android:backgroundTint="@color/colorPrimary"
-            android:padding="10dp"
-            android:shadowColor="@android:color/transparent"
             android:text="@string/next"
-
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

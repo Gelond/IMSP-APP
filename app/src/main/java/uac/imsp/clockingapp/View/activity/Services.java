@@ -39,13 +39,7 @@ public class Services extends AppCompatActivity implements IServicesView,
 	ArrayList<ServiceResuslt> arrayList;
 	 Button addService;
 	 EditText editService;
-	//EditText serviceListViewItemEditText;
-	//int position;
-	//View view;
-	//ViewGroup parent;
-	/*String oldService,newService;
-	Hashtable<Integer, String> hashtable=new Hashtable<>();*/
-
+	boolean dark;
 	SharedPreferences.Editor editor;
 	SharedPreferences preferences;
 
@@ -56,9 +50,18 @@ public class Services extends AppCompatActivity implements IServicesView,
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	private void retrieveSharedPreferences() {
+		String PREFS_NAME="MyPrefsFile";
+		SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+			setTheme(R.style.DarkTheme);
 		final String PREFS_NAME="MyPrefsFile";
 		preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		editor=preferences.edit();

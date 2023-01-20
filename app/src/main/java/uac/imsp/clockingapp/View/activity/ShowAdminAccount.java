@@ -27,10 +27,20 @@ public class ShowAdminAccount extends AppCompatActivity
 	IShowAdminAcountController showAdminAcountPresenter;
 	SharedPreferences preferences;
 	final String PREFS_NAME="MyPrefsFile";
+	boolean dark;
+
+	private void retrieveSharedPreferences() {
+		String PREFS_NAME="MyPrefsFile";
+		SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+			setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		preferences = getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
 		setContentView(R.layout.activity_show_admin_account);

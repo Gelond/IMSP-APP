@@ -37,6 +37,7 @@ public class DeleteEmployee extends AppCompatActivity
 
     IDeleteEmployeeController deleteEmployeePresenter;
     boolean notice;
+    boolean dark;
     EditText email;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         onBackPressed();
@@ -46,7 +47,9 @@ public class DeleteEmployee extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -54,7 +57,6 @@ public class DeleteEmployee extends AppCompatActivity
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.menu_delete_button);
-        retrieveSharedPreferences();
         setContentView(R.layout.activity_delete_employee);
 
         deleteEmployeePresenter = new DeleteEmployeeController(this);
@@ -69,8 +71,10 @@ public class DeleteEmployee extends AppCompatActivity
         SharedPreferences preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
         notice=preferences.getBoolean("notifyDelete",true);
-
+        dark=preferences.getBoolean("dark",false);
     }
+
+
     public void sendEmail(String[] to, String subject, String message) {
 
         Intent emailIntent=new Intent(Intent.ACTION_SEND);

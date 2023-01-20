@@ -1,5 +1,7 @@
 package uac.imsp.clockingapp.View.activity.settings;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +25,7 @@ public class PersonalInformations extends AppCompatActivity
 TextView lastname,firstname;
 EditText email;
 Button update, cancel;
+boolean dark;
 int number;
 IPersonalInformationsController personalInformationsPresenter;
 	@Override
@@ -34,10 +37,17 @@ IPersonalInformationsController personalInformationsPresenter;
 		return super.onOptionsItemSelected(item);
 	}
 
-
+	private void retrieveSharedPreferences() {
+		String PREFS_NAME="MyPrefsFile";
+		SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+			setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		// calling the action bar
 		ActionBar actionBar = getSupportActionBar();

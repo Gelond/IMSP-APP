@@ -1,5 +1,6 @@
 package uac.imsp.clockingapp.View.activity.settings.others;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -28,6 +29,7 @@ public class Languages extends AppCompatActivity implements ILanguagesView,
 	SharedPreferences preferences;
 	SharedPreferences.Editor editor;
 	ILanguagesController languagesPresenter;
+	boolean dark;
 
 	int cpt=0;
 
@@ -38,9 +40,18 @@ public class Languages extends AppCompatActivity implements ILanguagesView,
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	private void retrieveSharedPreferences() {
+		String PREFS_NAME="MyPrefsFile";
+		SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+			setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_languages);
 		ActionBar actionBar = getSupportActionBar();
@@ -80,7 +91,7 @@ public class Languages extends AppCompatActivity implements ILanguagesView,
 
 		LocalHelper.changeAppLanguage(Languages.this,lang);
 		if(cpt!=0)
-restartApp();
+            restartApp();
 		cpt++;
 	}
 	public void restartApp() {

@@ -1,20 +1,55 @@
 <resources>
 <style name="Button" parent="@android:style/Widget.Button">
-
     <item name="android:textSize">@dimen/large_text</item>
-
     <item name="android:textColor">@color/white</item>
-
     <item name="android:background">@drawable/button_bg</item>
-
     <item name="android:layout_width">fill_parent</item>
-
     <item name="android:layout_height">wrap_content</item>
-
     <item name="android:layout_centerHorizontal">true</item>
-
-    
 </style>
+
+
+    <style name="my_single_button" parent="@android:style/Widget.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shapelogin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+
+    <style name="my_single_button.blue" parent="my_single_button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shapelogin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="my_button_two" parent="my_single_button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shapelogin</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+    </style>
+
+
+
+    <style name="my_single_button.tomato" parent="my_single_button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shapelogin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:backgroundTint">@color/tomato</item>
+    </style>
     <style name="SearchTextViemTheme"
         parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="backgroundColor">@color/colorPrimary</item>
@@ -46,7 +81,38 @@
         <item name="android:navigationBarColor">@color/darkNavigationBar</item>
         <item name="android:textColorLink">@color/darkTextLink</item>
         <item name="android:textColorHighlight">@color/darkTextHighlight</item>
+
     </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/dialog_button</item>
+        <item name="android:textColorPrimary">@color/dialog_button</item>
+        <item name="android:colorBackground">@color/primaryColor</item>
+        <item name="backgroundColor">@color/dialog_background</item>
+        <!--item name="android:divider">#B6B6B6</item-->
+        <item name="android:textColor">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+    </style>
+    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:alertDialogStyle">@style/MyAlertDialogStyle</item>
+    </style>
+
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/dialog_button</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowTitleStyle">@style/WindowTitleStyle</item>
+        <item name="android:background">@color/dialog_background</item>
+    </style>
+    <style name="WindowTitleStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/dialog_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 
 
 
@@ -60,12 +126,6 @@
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">false</item>
 
-    </style>
-    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.CustomStyle">
@@ -92,16 +152,7 @@
     <style name="ToggleSwitchTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorAccent">@color/bar</item>
     </style>
-
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-
-
-
-
-
-
 
 </resources>

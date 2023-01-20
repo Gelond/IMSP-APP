@@ -39,13 +39,9 @@
     <color name="appOrangeDark">#ef6c00</color>
     <color name="red">#D81B60</color>
         <color name="bar">#ffff8800</color>
+    <color name="orangeRed">#FF4500</color>
+    <color name="tomato">#FF6347</color>
 
-    <!--color name="darkPrimary">#303F9F</color>
-    <color name="darkPrimaryDark">#000000</color>
-    <color name="darkAccent">#FF4081</color>
-    <color name="darkBackground">#303030</color>
-    <color name="darkTextPrimary">#FFFFFF</color>
-    <color name="darkTextSecondary">#BDBDBD</color-->
 
     <!-- Dark mode colors -->
     <color name="darkPrimary">#000000</color>
@@ -59,6 +55,14 @@
     <color name="darkNavigationBar">#000000</color>
     <color name="darkTextLink">#bdbdbd</color>
     <color name="darkTextHighlight">#bdbdbd</color>
+
+
+    <color name="colorPrimar">#0aaf0f</color>
+    <color name="colorPrimaryDar">#225e1a</color>
+
+    <color name="dialog_background">#5fa3d0</color>
+    <color name="dialog_button">#f5ef3c</color>
+    <color name="dialog_title">#be3c08</color>
 
 
 

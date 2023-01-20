@@ -42,6 +42,7 @@ public class ClockInOut extends AppCompatActivity
     int Number;
     BarcodeDetector barcodeDetector;
     private  CameraSource cameraSource;
+    boolean dark;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     //Button btnAction;
     String intentData = "";
@@ -65,7 +66,9 @@ public class ClockInOut extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -73,7 +76,7 @@ public class ClockInOut extends AppCompatActivity
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.clocking_text);
-        retrieveSharedPreferences();
+
         setContentView(useQRcode? R.layout.activity_scanner:R.layout.fingerprint_gesture);
         initViews();
         initialiseDetectorsAndSources(true);
@@ -175,6 +178,7 @@ public void retrieveSharedPreferences(){
         String PREFS_NAME="MyPrefsFile";
     preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
             Context.MODE_PRIVATE);
+    dark=preferences.getBoolean("dark",false);
     useQRcode=preferences.getBoolean("useQRCode",true);
 }
 

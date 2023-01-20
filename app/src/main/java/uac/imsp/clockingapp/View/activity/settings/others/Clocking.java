@@ -22,7 +22,7 @@ public class Clocking extends AppCompatActivity
 	SharedPreferences.Editor editor;
 	RadioGroup radioGroup;
 	RadioButton useQRCode,useFingerprint;
-	boolean UseQRCode;
+	boolean UseQRCode,dark;
 	IClockingController clockingPresenter;
 	final  String PREFS_NAME="MyPrefsFile";
 	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -35,7 +35,9 @@ public class Clocking extends AppCompatActivity
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+		   setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_clocking);
 		ActionBar actionBar = getSupportActionBar();
@@ -43,7 +45,7 @@ public class Clocking extends AppCompatActivity
 		assert actionBar != null;
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		clockingPresenter=new ClockingController(this);
-		retrieveSharedPreferences();
+
 		initView();
 
 
@@ -56,6 +58,7 @@ public class Clocking extends AppCompatActivity
 		useQRCode.setChecked(UseQRCode);
 		useFingerprint.setChecked(!UseQRCode);
 		radioGroup.setOnCheckedChangeListener(this);
+
 
 	}
 
@@ -73,11 +76,11 @@ if(group.getId()==R.id.group)
 
 	}
 	public void retrieveSharedPreferences(){
-		preferences= getApplicationContext().getSharedPreferences(PREFS_NAME,
+		preferences= getSharedPreferences(PREFS_NAME,
 				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
 		editor=preferences.edit();
 		UseQRCode =preferences.getBoolean("useQRCode",true);
-		//UseFingerPrint =preferences.getBoolean("useFingerprint",false);
 
 	}
 

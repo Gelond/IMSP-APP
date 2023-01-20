@@ -1,5 +1,7 @@
         package uac.imsp.clockingapp.View.activity;
 
+        import android.content.Context;
+        import android.content.SharedPreferences;
         import android.graphics.Color;
         import android.os.Bundle;
         import android.view.MenuItem;
@@ -26,6 +28,7 @@ public class ConsultPresenceReport extends AppCompatActivity
         implements IConsultPresenceReportView,
         View.OnClickListener {
         private TableLayout report;
+        boolean dark;
         private TextView reportPeriod;
         private  Button previous,next;
         private int firstDayNumberInWeek;
@@ -40,12 +43,21 @@ public class ConsultPresenceReport extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void retrieveSharedPreferences() {
+        String PREFS_NAME="MyPrefsFile";
+        SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
+    }
     @Override
         protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
-                super.onCreate(savedInstanceState);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
+        super.onCreate(savedInstanceState);
             // calling the action bar
-            ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
 // showing the back button in action bar
             assert actionBar != null;
             actionBar.setDisplayHomeAsUpEnabled(true);

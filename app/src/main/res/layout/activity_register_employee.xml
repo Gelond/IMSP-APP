@@ -379,17 +379,12 @@
 
             <Button
                 android:id="@+id/register_picture_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/my_single_button.blue"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/shapelogin"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/register_picture" />
 
 
@@ -472,32 +467,22 @@
 
             <Button
                 android:id="@+id/register_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/my_single_button.blue"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/shapelogin"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/register_button" />
 
             <Button
+                style="@style/my_single_button.tomato"
                 android:id="@+id/register_reset_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/shapelogin"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/reset_button" />
 
         </LinearLayout>

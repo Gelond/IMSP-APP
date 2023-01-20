@@ -18,6 +18,7 @@ public class SetUp extends AppCompatActivity implements View.OnClickListener {
     SharedPreferences preferences;
     ImageView imageView;
     Runnable runnable;
+    boolean dark;
 
     // Create a variable to keep track of the current image
     int currentImage = 1;
@@ -28,10 +29,17 @@ public class SetUp extends AppCompatActivity implements View.OnClickListener {
     // Create a handler
     final Handler handler = new Handler();
 
-
+    private void retrieveSharedPreferences() {
+        String PREFS_NAME="MyPrefsFile";
+        SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         final String PREFS_NAME="MyPrefsFile";
         preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor=preferences.edit();

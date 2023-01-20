@@ -2,7 +2,9 @@ package uac.imsp.clockingapp.View.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +26,7 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
 
     IGeneralMenuController menuPresenter;
     private int currentUser;
+    boolean dark;
 
 
     @Override
@@ -32,11 +35,18 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
         menuPresenter.onExit();
 
     }
-
+    private void retrieveSharedPreferences() {
+        String PREFS_NAME="MyPrefsFile";
+        SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        dark=preferences.getBoolean("dark",false);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setTheme(R.style.DarkTheme);
+        retrieveSharedPreferences();
+        if(dark)
+            setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_menu);
         ActionBar actionBar = getSupportActionBar();

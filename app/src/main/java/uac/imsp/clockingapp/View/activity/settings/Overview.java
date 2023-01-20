@@ -3,6 +3,7 @@ package uac.imsp.clockingapp.View.activity.settings;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,10 +22,13 @@ import uac.imsp.clockingapp.View.util.ToastMessage;
 public class Overview extends AppCompatActivity implements View.OnClickListener {
 	Button cpyOverview;
 	TextView appVersionName,sdkVersion,osVersion,deviceName,deviceManufacturer;
+	boolean dark;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.DarkTheme);
+		retrieveSharedPreferences();
+		if(dark)
+			setTheme(R.style.DarkTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_overview);
 		// calling the action bar
@@ -40,6 +44,13 @@ public class Overview extends AppCompatActivity implements View.OnClickListener 
 			onBackPressed();
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void retrieveSharedPreferences() {
+		String PREFS_NAME="MyPrefsFile";
+		SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		dark=preferences.getBoolean("dark",false);
 	}
 	public void initView(){
 		cpyOverview=findViewById(R.id.overview_copy);
