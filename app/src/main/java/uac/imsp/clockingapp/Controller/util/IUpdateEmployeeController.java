@@ -7,8 +7,9 @@ public interface IUpdateEmployeeController {
     void onUpdateEmployee(String mail, String selectedService, int startTime,
 
 
-                          int endTime,byte[] workDays, Bitmap picture, String type);
-    //void onConfirmResult(boolean confirmed,boolean pictureUpdated,boolean planningUpdated);
+                          int endTime,byte[] workDays, Bitmap picture, String type,
+						  boolean isAdmin);
+
 
 
 

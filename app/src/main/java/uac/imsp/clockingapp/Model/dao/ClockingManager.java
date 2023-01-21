@@ -10,20 +10,28 @@ import androidx.annotation.NonNull;
 import dbAdapter.ClockingSQLite;
 import entity.Day;
 import entity.Employee;
-
-
+/** Represents a database manager for clocking's table.
+ *<br/>
+ * Allows to manage clocking's table<br/>
+ * Proposes methods to manage employees"s attendances<br/>
+ * @author Ezéchiel G. ADEDE
+ * @version 1.0
+ * @since 2023*/
 public class ClockingManager {
-
+/**Represents the database**/
     private SQLiteDatabase Database = null;
-
+    /**Reprents a clockingSQLite object for database configuration**/
     private final ClockingSQLite clockingSQLite;
-
+    /** A constructor of clocking manager : it allows to
+     * initialize the database configurator
+     * @param context is the application's context
+     */
     public ClockingManager(Context context) {
 
         clockingSQLite = new ClockingSQLite(context);
     }
 
-
+/**Opens the SQLite database by making it writable**/
     public SQLiteDatabase    open() {
         if (Database == null)
             Database = clockingSQLite.getWritableDatabase();
@@ -34,13 +42,17 @@ public class ClockingManager {
         }
         return Database;
     }
-
+/**Closes the SQLite database**/
     public void close() {
         if (Database != null && Database.isOpen())
             Database.close();
     }
-/**This od allows us to clock the given employee in it
- * requires the employee wotks the given day**/
+/**This method allows  to clock the given employee in
+ *
+ * It requires the employee attend to work the given day
+ * @param employee : the concerned employee
+ * @param day the day the employee is clocking in**/
+
     public void clockIn(@NonNull Employee employee, @NonNull Day day) {
         Cursor cursor;
         String currentEntryTime;
@@ -52,10 +64,10 @@ public class ClockingManager {
         currentEntryTime=cursor.getString(0);
         cursor.close();
         clockIn(employee,day,currentEntryTime);
-
-
     }
-
+/**Allows to get the ettended entry time of the employee
+ * @param employee  the concerned employee
+ * @return  the attended entry time as a string in the format HH:mm**/
     public String getAttendedEntryTime(@NonNull Employee employee){
       String   query="SELECT heure_debut_officielle FROM planning " +
                 "JOIN employe ON id_planning=id_planning_ref" +
@@ -69,10 +81,13 @@ public class ClockingManager {
 
     }
 
-/**j*/
+    /**This method allows  to clock the given employee in the givien datetime
+     *
+     * It requires the employee attend to work the given day
+     * @param employee : the concerned employee
+     * @param day the day the employee is clocking in
+     * @param time the concerned time**/
     public void clockIn(@NonNull Employee employee, @NonNull Day day, String time) {
-
-
         String attendedEntryTime;
         String currentEntryTime;
         int id;
@@ -81,8 +96,6 @@ public class ClockingManager {
         id=day.getId();
         currentEntryTime=time;
         attendedEntryTime=getAttendedEntryTime(employee);
-
-
         String status;
         if(currentEntryTime.compareTo(attendedEntryTime)<=0)
 
@@ -101,14 +114,14 @@ public class ClockingManager {
 
         statement.executeUpdateDelete();
 
-
-
-
-
     }
 
 
-    //for clocking out
+    /**This method allows  to clock the given employee out the given day
+     *
+     * It requires the employee attend to work the given day
+     * @param employee : the concerned employee
+     * @param day the day the employee is clocking out**/
     public void clockOut(@NonNull Employee employee, @NonNull Day day) {
         int id;
         id=day.getId();
@@ -131,7 +144,12 @@ public class ClockingManager {
         statement.executeUpdateDelete();
 
     }
-/**This method check if the given employee has(already) clocked in the given day**/
+/**This method check if the given employee has(already)
+ *  clocked in the given day
+ *@param  employee the concerned employee
+ * @param day the concerned day
+ * @return  true if the employee has not
+ * already clocked in the given day and false otherwise**/
     public boolean hasNotClockedIn(@NonNull Employee employee, @NonNull Day day) {
 
         int n;
@@ -151,7 +169,12 @@ public class ClockingManager {
     }
 
 
-
+    /**This method check if the given employee has(already)
+     *  clocked out the given day
+     *@param  employee the concerned employee
+     * @param day the concerned day
+     * @return  true if the employee has not
+     * already clocked out the given day and false otherwise**/
     public boolean hasNotClockedOut(@NonNull Employee employee, @NonNull Day day) {
         String out;
 int id=day.getId(),n;
@@ -167,6 +190,4 @@ int id=day.getId(),n;
         cursor.close();
         return n == 0 ||out==null/*|| out.equals("")*/;
     }
-
-
 }

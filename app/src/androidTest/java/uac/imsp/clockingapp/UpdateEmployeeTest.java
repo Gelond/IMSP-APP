@@ -39,14 +39,14 @@ public class UpdateEmployeeTest  implements IUpdateEmployeeView {
         new UpdateEmployeeTest();
         assertNotNull(updateEmployeePresenter);
         updateEmployeePresenter.onUpdateEmployee("","Direction",
-                0,0,null,null,"");
+                0,0,null,null,"", true);
 
 
         updateEmployeePresenter.onUpdateEmployee("kkg","Direction",
-                0,0,null,null,"");
+                0,0,null,null,"", true);
 
         updateEmployeePresenter.onUpdateEmployee("ezestar@gmail.com","Direction",
-                0,0,null,null,"");
+                0,0,null,null,"", true);
 
 
     }

@@ -45,9 +45,11 @@ public class UpdateEmployee extends AppCompatActivity
                            AdapterView.OnItemSelectedListener,
         NumberPicker.OnValueChangeListener , NumberPicker.Formatter,
         IUpdateEmployeeView {
+    CheckBox admin;
 
     Hashtable<String, Object> informations = new Hashtable<>();
     private EditText Email;
+    boolean isAdmin;
     private String outgoingMail;
     private TextView Programm;
     private String selectedService, function, provisionalService, provisionalFunction;
@@ -168,7 +170,7 @@ public class UpdateEmployee extends AppCompatActivity
     }
 
     public void initView() {
-
+        admin=findViewById(R.id.admin);
         number = findViewById(R.id.register_number);
         Email = findViewById(R.id.register_email);
         Function=findViewById(R.id.register_function);
@@ -254,10 +256,8 @@ functionUpdated =false;
         tab=updateEmployeePresenter.onLoad(actionNumber);
         services= (String[]) tab[0];
         informations= (Hashtable<String, Object>) tab[1];
-        // } catch (ParseException e) {
-           // e.printStackTrace();
-       // }
 
+        isAdmin= (boolean) informations.get("admin");
 
         selectedService = (String) informations.get("service");
         outgoingService = selectedService;
@@ -299,7 +299,7 @@ functionUpdated =false;
 
         dataAdapterR.setDropDownViewResource(android.R.layout.
                 simple_spinner_dropdown_item);
-
+         admin.setChecked(isAdmin);
 
         if (informations.get("picture") != null)
             image.setImageBitmap((Bitmap) informations.get("picture"));
@@ -473,7 +473,7 @@ onRestart();
                 .setPositiveButton(getString(R.string.yes), (dialog, which) ->
                         updateEmployeePresenter.onUpdateEmployee
                         (Email.getText().toString(),
-                        selectedService,Start,End,WorkDays,picture, function))
+                        selectedService,Start,End,WorkDays,picture, function, isAdmin))
                 .setNegativeButton(getString(R.string.no), (dialog, which) -> loadData());
 
                 AlertDialog alert = builder.create();

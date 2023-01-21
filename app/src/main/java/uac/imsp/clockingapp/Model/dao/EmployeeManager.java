@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteStatement;
 import androidx.annotation.NonNull;
 
 import java.math.BigInteger;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -21,17 +20,28 @@ import entity.Employee;
 import entity.Planning;
 import entity.Service;
 
-
+/** Represents a database manager for employee's table.
+ *<br/>
+ * Allows to manage clocking's table<br/>
+ * Proposes methods to create, read, update, delete employees<br/>
+ * @author Ezéchiel G. ADEDE
+ * @version 1.0
+ * @since 2023*/
 public class EmployeeManager {
     public final static int CAN_NOT_LOGIN = 15;
+    /**Represents the database**/
     private SQLiteDatabase Database = null;
+    /**Reprents a employeeSQLite object for database configuration**/
     private final EmployeeSQLite employeeSQLite;
 
-    //private Context context;
+    /** A constructor of employee manager : it allows to
+     * initialize the database configurator
+     * @param context is the application's context
+     */
     public EmployeeManager(Context context) {
         employeeSQLite = new EmployeeSQLite(context);
     }
-
+    /**Opens the SQLite database by making it writable**/
     public SQLiteDatabase open() {
         if (Database == null )
             Database = employeeSQLite.getWritableDatabase();
@@ -42,12 +52,15 @@ public class EmployeeManager {
         }
         return Database;
     }
-
+    /**Closes the SQLite database**/
     public void close() {
         if (Database != null && Database.isOpen())
             Database.close();
     }
-
+/**Retrieves acccount informations of employee for login
+ * @param employee  the employee that want to login
+ * @return a login code 0 if success and
+ *  if failure **/
     public int connectUser(@NonNull Employee employee) {
 
         int nb_employee;
@@ -74,6 +87,11 @@ public class EmployeeManager {
         return CAN_NOT_LOGIN;
 
     }
+
+    /**Retrieves acccount informations of employee
+     * @param employee  the employee that want to login
+     * @return the username and the password
+     * of the employeee as a string array**/
     public String[] retrieveAccount(@NonNull Employee employee){
         String query = "SELECT username,password FROM employe WHERE matricule=?";
         String[] selectArgs = {String.valueOf(employee.getRegistrationNumber())};
@@ -89,7 +107,8 @@ public class EmployeeManager {
     }
 
 
-    //create,delete,update
+    /**Creates an employee
+     * It requires the employee doesn't exist**/
 
     public void create(@NonNull Employee employee) {
 
@@ -123,6 +142,9 @@ public class EmployeeManager {
         }
 
     }
+    /** Sets to the meployee object the day the concerned
+     *  employee has been created
+     *  @param employee the concerned employee**/
     public void retrieveAddDate(@NonNull Employee employee){
         String querry="SELECT date_ajout FROM employe WHERE matricule=?";
         String[] selectArgs={String.valueOf(employee.getRegistrationNumber())};
@@ -132,7 +154,8 @@ public class EmployeeManager {
 
         cursor.close();
     }
-
+/**Sets username and password to employee
+ * @param employee the concerned employee**/
     public void setAccount(@NonNull Employee employee) {
 
         String query = "SELECT username, password FROM employe WHERE matricule=?";
@@ -146,7 +169,9 @@ public class EmployeeManager {
 
 
     }
-
+/**Change the password of the employee
+ * @param employee  the concerned employee
+ * @param newPassword  the new password**/
     public void changePassword(@NonNull Employee employee, String newPassword) {
 
         String query = "UPDATE employe SET password=? WHERE matricule=?";
@@ -160,10 +185,9 @@ public class EmployeeManager {
 
 
     }
-//On peut modifier le courier ou la photo de l'employé
-
-
-    //update the email of employee
+/**Changes the pmai address of the employee
+ * @param employee  the concerned employee
+ * @param mailAddress  the new mail address**/
     public void update(@NonNull Employee employee, String mailAddress) {
 
         String query = "UPDATE employe SET couriel =? WHERE matricule=?";
@@ -174,18 +198,35 @@ public class EmployeeManager {
         statement.executeUpdateDelete();
     }
 
-
-    public void changeGrade(@NonNull Employee employee, String type) {
+/**Changes the function of the employee
+ * @param employee the concerned
+ * @param function the new function occupied by the employee**/
+    public void changeFunction(@NonNull Employee employee, String function) {
 
         String query = "UPDATE employe SET type =? WHERE matricule=?";
         SQLiteStatement statement;
         statement = Database.compileStatement(query);
-        statement.bindString(1, type);
+        statement.bindString(1, function);
         statement.bindLong(2, employee.getRegistrationNumber());
         statement.executeUpdateDelete();
     }
 
-    //To update the picture of the employee
+/**Make an employee admin or not admin
+ * @param employee  thhe concerned employeee
+ * @param isAdmin if true the employee becomes admin
+ * if false he becomes not admin**/
+    public void setAdmin(@NonNull Employee employee, boolean isAdmin) {
+
+        String query = "UPDATE employe SET est_admin =? WHERE matricule=?";
+        SQLiteStatement statement;
+        statement = Database.compileStatement(query);
+        statement.bindString(1,isAdmin?"true":"false" );
+        statement.bindLong(2, employee.getRegistrationNumber());
+        statement.executeUpdateDelete();
+    }
+    /**To update the picture of the employee
+     * @param employee  the concerned employee
+     * @param picture the new picture of the employee**/
     public void update(@NonNull Employee employee, byte[] picture) {
         String query = "UPDATE employe SET photo =? WHERE matricule=?";
         SQLiteStatement statement;
@@ -194,7 +235,9 @@ public class EmployeeManager {
         statement.bindLong(2, employee.getRegistrationNumber());
         statement.executeUpdateDelete();
     }
-
+/**Gets the planning of the employee
+ * @param employee the employee whose planning is gonna to be retrieved
+ * @return the planning of the employee**/
     public Planning getPlanning(@NonNull Employee employee) {
         Planning planning = null;
         String query = "SELECT heure_debut_officielle,heure_fin_officielle," +
@@ -213,7 +256,9 @@ public class EmployeeManager {
         cursor.close();
         return planning;
     }
-
+    /**Gets the service of the employee
+     * @param employee the employee whose service is gonna to be retrieved
+     * @return the service of the employee**/
     public Service getService(@NonNull Employee employee) {
         Service service;
         String query = "SELECT service.nom  " +
@@ -227,7 +272,8 @@ public class EmployeeManager {
         cursor.close();
         return service;
     }
-
+/**Deletes an employee
+ * @param employee the concerned employee**/
     public void delete(@NonNull Employee employee) {
         String query = "DELETE FROM employe WHERE matricule=?";
         SQLiteStatement statement;
@@ -236,11 +282,10 @@ public class EmployeeManager {
         statement.bindLong(1, employee.getRegistrationNumber());
         statement.executeUpdateDelete();
     }
-//Pour rechercher un employé
-/*On peut rechercher par matricule,nom,prénom,ou service
-//Cette méthode prend la donnée à rechercher et retourne
-un tableau contenant les emplyés vérifiant le motif de recherche*/
-
+    /**Search employee(s) by  registration number,
+     *  firstname, lastname or service
+     * @param data a string, if *,all the employee are founded
+     * @return  the employees table matching the search**/
     public Employee[] search(String data) {
         String query, queryAll;
 
@@ -275,14 +320,18 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
     }
 
-
+/**Checks if an employee exists
+ * @param employee the concerned employee**/
     public boolean exists(@NonNull Employee employee) {
 
         return registrationNumberExists(employee);
 
 
     }
-
+/**Checks if the registration number of the given
+ * employee already exists
+ * @param employee  the concerned employee
+ * @return  true if the number exists and false otherwise**/
     public boolean registrationNumberExists(@NonNull Employee employee) {
         boolean test;
         String query = "SELECT matricule FROM employe WHERE matricule=?";
@@ -295,7 +344,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
         return test;
     }
-
+    /**Checks if the username of the given
+     * employee already exists
+     * @param employee  the concerned employee
+     * @return  true if the username exists and false otherwise**/
     public boolean usernameExists(@NonNull Employee employee) {
 
         boolean test;
@@ -307,7 +359,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         cursor.close();
         return test;
     }
-
+/**Updates attendence status by setting it to holiday
+ *  for every employee the given day
+ * @param day the concerned day***/
     public void holiday( @NonNull Day day) {
         SQLiteStatement statement;
         String query;
@@ -321,13 +375,11 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
             statement.bindLong(2, emp.getRegistrationNumber());
             statement.executeUpdateDelete();
         }
-
-
-
-
-
     }
-
+    /**Checks if the mail address of the given
+     * employee already exists
+     * @param employee  the concerned employee
+     * @return  true if the mail address exists and false otherwise**/
     public boolean emailExists(@NonNull Employee employee) {
 
         boolean test;
@@ -339,7 +391,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         return test;
     }
 
-
+/**Sets informations such as firstname, lastname,
+ * gender, picture, function, mail address, birthdate,
+ * work days, admin to the given employee
+ * @param employee the concerned employee**/
     public void setInformations(@NonNull Employee employee) {
         String query;
         String[] selectArgs;
@@ -375,7 +430,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
 
     }
-
+    /**Sets informations'without picture) such as firstname, lastname,
+     * gender, function, mail address, birthdate,
+     * work days, admin to the given employee
+     * @param employee the concerned employee**/
 
     public void setInformationsWithoutPicture(@NonNull Employee employee) {
 
@@ -408,7 +466,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
     }
 
-
+/**Update the service of an employee
+ * @param employee the concerned employee
+ * @param service the new service to be settled to the employee**/
     public void update(@NonNull Employee employee, @NonNull Service service) {
         String query = "UPDATE employe SET id_service_ref=? WHERE matricule=?";
         SQLiteStatement statement = Database.compileStatement(query);
@@ -417,21 +477,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         statement.executeUpdateDelete();
 
     }
-    /**
-     * Update the planning of the given employee
-     * The url argument must specify an absolute <a href="#{@link}">{@link URL}</a>. The name
-     * argument is a specifier that is relative to the url argument.
-     * <p>
-     * This method always returns immediately, whether or not the
-     * image exists. When this applet attempts to draw the image on
-     * the screen, the data will be loaded. The graphics primitives
-     * that draw the image will incrementally paint on the screen.
-     *
-     * @param  employee  an absolute URL giving the base location of the image
-     * @param  planning the location of the image, relative to the url argument
-     * @see   Employee
-     * @see Planning
-     */
+    /**Update the planning of an employee
+     * @param employee the concerned employee
+     * @param planning the new planning to be settled to the employee**/
     public void update(@NonNull Employee employee, @NonNull Planning planning) {
         String query = "UPDATE employe SET id_planning_ref=? WHERE matricule=?";
         SQLiteStatement statement = Database.compileStatement(query);
@@ -440,7 +488,13 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         statement.executeUpdateDelete();
 
     }
-
+    /**Gets the number of workdays of the employee in the given month
+     * @param employee the concerned employee
+     * @param month  the concerned month
+     * @param year the concerned year
+     * @return  the number of times the employe is
+     * attended to work in the given month
+     * of yhe given year**/
     public int getNumberOfWorkDays(Employee employee, int month, int year){
         Day day=new Day();
         int total=0;
@@ -455,7 +509,13 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         return total;
 
     }
-
+    /**Gets the attendance report of an employee in a given month
+     * @param employee  the concerned employee
+     * @param month the concerned month
+     * @param  year the concerned year
+     * #return this report as a integer array
+     *whith a lenght as same as the number of*
+     * days in the concernded month**/
     public int[] getAttendanceReportForEmployee(Employee employee, int month, int year){
         int p=0,a=0,r=0;
         int [] report=new int[4];
@@ -480,7 +540,13 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
     }
 
     // presence report in a month for an employee
-    /**Test**/
+    /**Gets the attendance report of an imployee in a given month
+     * @param employee  the concerned employee
+     * @param month the concerned month
+     * @param  year the concerned year
+     * #return this report as a string array
+     *whith a lenght as same as the number of*
+     * days in the concernded month**/
     public String[] getPresenceReportForEmployee(
             @NonNull Employee employee, int month, int year)  {
         //int nb;
@@ -529,7 +595,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
 
         return table;
     }
-
+/**Uses md5 algorithm to encrypt a password
+ * @param password the password to be encrypted
+ * @return the encrypted password**/
     public String getMd5(@NonNull String password) {
 
         try {
@@ -557,7 +625,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
             throw new RuntimeException(e);
         }
     }
-
+/**Checks if an employee should work the given day or not
+ * @param employee the concerned employee
+ * @param day the day
+ * @return true if the employee shouldn't work and false else**/
     public boolean shouldNotWorkThatDay(@NonNull Employee employee, @NonNull Day day) {
         Cursor cursor;
         byte[] workDays;
@@ -573,7 +644,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         cursor.close();
         return workDays[dayOfWeek - 1] != 'T';
     }
-
+    /**Checks if an employee should work the current day or not
+     * @param employee the concerned employee
+     * @return true if the employee shouldn't work and false else**/
     public boolean shouldNotWorkToday(@NonNull Employee employee) {
         Cursor cursor;
         byte[] workDays;
@@ -590,6 +663,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         cursor.close();
         return workDays[dayOfWeek - 1] != 'T';
     }
+    /**Updates the current attendance status of an employee
+     * @param employee the concerned employee
+     * @param status the status to be settle
+     * **/
     public void updateCurrentAttendance(@NonNull Employee employee, String status){
         SQLiteStatement statement;
         employee.setCurrentStatus(status);
@@ -602,7 +679,11 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
     }
 
 
-
+    /**Initializes the attendance of employees with status the given date
+     * @param employee  the concerned employees
+     *whose attendance is gonna be initialized
+     *@param day the concerned day
+     *@param status the status to settle**/
     public void initDayAttendance(@NonNull Employee employee, String status,
                                   @NonNull Day day){
         SQLiteStatement statement;
@@ -619,9 +700,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         statement.executeInsert();
 
     }
-
-
-
+/**Gets the attendance status of an employee the given day
+ * @param employee the concerned employee
+ * @param day the concernded day
+ * @return  an integer matching the status**/
     public int getStatus(@NonNull Employee employee, @NonNull Day day){
         String status,exitTime = null;
         int index = -1;
@@ -660,7 +742,10 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         return index;
 
     }
-//for unit test
+/**Sets attendance status of employee at the given date
+ * @param employee  the concernde employee
+ * @param status the status
+ * @param date the concerned date in the format YYYY-MM-dd**/
     public void setAttendance(@NonNull Employee employee, String status, String date){
         SQLiteStatement statement;
         String query;
@@ -677,6 +762,9 @@ un tableau contenant les emplyés vérifiant le motif de recherche*/
         statement.executeInsert();
 
     }
+
+    /**Uate the last day employees status has been updated
+     * by setting it to the current date**/
 public void updateVariable(){
 
         Day day=new Day();
@@ -687,6 +775,8 @@ statement.executeUpdateDelete();
 
 
 }
+/**Gets the last day employees status has been updated
+ * @return this date as a string in the format YYYY-MM-dd**/
 public String selectVariable(){
         String date="";
     String query="SELECT last_update FROM variable";
@@ -697,6 +787,8 @@ public String selectVariable(){
     cursor.close();
         return date;
 }
+/**Sets the current attendance status of the employee
+ * @param employee the concerned employee**/
     public void setStatus(@NonNull Employee employee){
         Cursor cursor;
         String status;
@@ -707,19 +799,19 @@ public String selectVariable(){
         status=cursor.getString(0);
         employee.setCurrentStatus(status);
         cursor.close();
-
-
     }
-
+/**Initializes the attendance of employees with status the given date
+ * @param employees  the table of the employees
+ *whose attendance are gonna be initialized**/
     public void initDayAttendance(@NonNull Employee[] employees, String status, Day day) {
         for(Employee employee:employees)
             initDayAttendance(employee,status,day);
     }
-
+/**Gets the stored registration numbers
+ * returns these numbers as table of integers**/
     public int[] getRegNumbers() {
         Cursor cursor;
         String query = "SELECT matricule FROM employe";
-
         cursor = Database.rawQuery(query, null);
         int [] regNumbers = new int[cursor.getCount()];
         int i=0;

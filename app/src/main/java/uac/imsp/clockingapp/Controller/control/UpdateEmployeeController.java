@@ -112,6 +112,7 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
             e.printStackTrace();
         }
         informations.put("birthdate",birthdate);
+        informations.put("admin",employee.isAdmin());
 
 
         return new Object[]{serviceList,informations};
@@ -120,8 +121,8 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
     @Override
     public void onUpdateEmployee(String mail, String selectedService,
                                  int startTime,
-                                 int endTime,byte[] workDays,
-                                 Bitmap picture, String type) {
+                                 int endTime, byte[] workDays,
+                                 Bitmap picture, String type, boolean isAdmin) {
 
 
         if (mailUpdated) {
@@ -210,7 +211,7 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
 
 
             if (typeUpdated)
-                employeeManager.changeGrade(employee, type);
+                employeeManager.changeFunction(employee, type);
 
 
             if (serviceUpdated)
@@ -219,7 +220,9 @@ public class UpdateEmployeeController implements IUpdateEmployeeController {
 
             if (pictureUpdated)
                     employeeManager.update(employee, getBytesFromBitmap(picture));
+            employeeManager.setAdmin(employee,isAdmin);
             employeeManager.close();
+
         }
     }
 

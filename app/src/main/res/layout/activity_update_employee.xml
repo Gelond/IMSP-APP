@@ -353,7 +353,14 @@
                 android:layout_height="match_parent"
                 android:text="@string/sunday"
                 android:checked="true"/>
-
+            <CheckBox
+                android:layout_marginTop="10dp"
+                android:id="@+id/admin"
+                android:checked="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/update_button"
                 android:text="@string/update_button"
@@ -364,6 +371,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
                 />
+
+
 
         </LinearLayout>
     </ScrollView>
