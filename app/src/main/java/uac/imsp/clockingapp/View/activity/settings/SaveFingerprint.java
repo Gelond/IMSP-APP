@@ -1,8 +1,10 @@
 package uac.imsp.clockingapp.View.activity.settings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -12,12 +14,20 @@ import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+
+import java.util.Objects;
 import java.util.concurrent.Executor;
 
+import uac.imsp.clockingapp.Controller.control.settings.SaveFingerprintController;
+import uac.imsp.clockingapp.Controller.util.settings.ISaveFingerprintController;
 import uac.imsp.clockingapp.R;
+import uac.imsp.clockingapp.View.util.ToastMessage;
+import uac.imsp.clockingapp.View.util.settings.ISaveFingerprintView;
 
-public class SaveFingerprint extends AppCompatActivity {
+public class SaveFingerprint extends AppCompatActivity implements ISaveFingerprintView {
     BiometricManager biometricManager ;
+    ISaveFingerprintController saveFingerprintPresenter;
     boolean dark;
 
     private void retrieveSharedPreferences() {
@@ -34,6 +44,7 @@ public class SaveFingerprint extends AppCompatActivity {
             setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savefingerprint);
+        saveFingerprintPresenter=new SaveFingerprintController(this);
 
         // calling the action bar
         androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
@@ -59,13 +70,22 @@ public class SaveFingerprint extends AppCompatActivity {
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
                 // Prompts the user to create credentials that your app accepts.
-                /*final Intent enrollIntent = new Intent
-                        (Settings.ACTION_BIOMETRIC_ENROLL);
 
-                enrollIntent.putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                        BiometricManager.Authenticators.BIOMETRIC_WEAK |
-                                BiometricManager.Authenticators.DEVICE_CREDENTIAL);
-                startActivityForResult(enrollIntent, IntentIntegrator.REQUEST_CODE);*/
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+                    final Intent enrollIntent;
+                    enrollIntent = new Intent
+                            (Settings.ACTION_BIOMETRIC_ENROLL);
+                    enrollIntent.putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                            BiometricManager.Authenticators.BIOMETRIC_WEAK |
+                                    BiometricManager.Authenticators.DEVICE_CREDENTIAL);
+                    startActivityForResult(enrollIntent, IntentIntegrator.REQUEST_CODE);
+                }
+                break;
+            case BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED:
+            case BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED:
+            case BiometricManager.BIOMETRIC_STATUS_UNKNOWN:
+            default:
                 break;
         }
 
@@ -77,16 +97,52 @@ public class SaveFingerprint extends AppCompatActivity {
             public void onAuthenticationError(int errorCode, @NonNull CharSequence
                     errString) {
                 super.onAuthenticationError(errorCode, errString);
-                //viewEditAndSave();
+
             }
 
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.
                     AuthenticationResult result) {
-
-                //authComplete = true;
-                //viewEditAndSave();
                 super.onAuthenticationSucceeded(result);
+                byte[] fingerprintData = Objects.requireNonNull(result.getCryptoObject()).getCipher().getIV();
+
+                int currentUser = getIntent().getIntExtra
+                        ("CURRENT_USER", 0);
+
+                saveFingerprintPresenter.onFingerprintEnrollement(currentUser,fingerprintData);
+
+               /* FingerprintManager fingerprintManager = (FingerprintManager)
+                        getSystemService(FINGERPRINT_SERVICE);*/
+
+
+// Compare the stored fingerprint data with the live capture data
+                /*fingerprintManager.authenticate(
+                        new FingerprintManager.CryptoObject(cipher), null,
+                        0, new
+                        FingerprintManager.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(FingerprintManager.
+                                                                  AuthenticationResult
+                                                                  result) {
+
+                        // Live capture data matches the stored fingerprint data
+
+                        new ToastMessage(SaveFingerprint.this,"Super");
+                    }
+
+                    @Override
+                    public void onAuthenticationFailed() {
+                        // Live capture data does not match the stored fingerprint data
+
+                        new ToastMessage(SaveFingerprint.this,"djf");
+                    }
+                },
+                        null);*/ {
+
+                }
+
+
+
             }
 
             @Override
@@ -123,4 +179,10 @@ public class SaveFingerprint extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onSuccess() {
+        new ToastMessage(this, "Fingerprint succcessfully registered");
+
+
     }
+}

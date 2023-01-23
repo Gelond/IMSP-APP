@@ -679,6 +679,8 @@ public class EmployeeManager {
     }
 
 
+
+
     /**Initializes the attendance of employees with status the given date
      * @param employee  the concerned employees
      *whose attendance is gonna be initialized
@@ -822,5 +824,31 @@ public String selectVariable(){
          }
         cursor.close();
          return  regNumbers;
+    }
+
+    public Hashtable<Integer,byte[]> getFingerprints() {
+        Cursor cursor;
+        String query = "SELECT matricule, empreinte FROM employe";
+        cursor = Database.rawQuery(query, null);
+        Hashtable <Integer,byte[]> data = new Hashtable<>();
+
+        while (cursor.moveToNext())
+
+            data.put(cursor.getInt(0),cursor.getBlob(1));
+
+        cursor.close();
+        return data;
+
+    }
+
+    public void updateFingerprint(@NonNull Employee employee, byte[] fingerprintData) {
+
+
+        String query = "UPDATE employe SET empreinte =? WHERE matricule=?";
+        SQLiteStatement statement;
+        statement = Database.compileStatement(query);
+        statement.bindBlob(1, fingerprintData);
+        statement.bindLong(2, employee.getRegistrationNumber());
+        statement.executeUpdateDelete();
     }
 }

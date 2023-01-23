@@ -11,6 +11,7 @@ import dao.EmployeeManager;
 import entity.Day;
 import entity.Employee;
 import uac.imsp.clockingapp.Controller.util.IStartScreenController;
+import uac.imsp.clockingapp.FingerprintHelper;
 import uac.imsp.clockingapp.View.util.IStartScreenView;
 
 public class StartScreenController  implements IStartScreenController {
@@ -69,7 +70,8 @@ public class StartScreenController  implements IStartScreenController {
 
         else if (savedVersionCode==DOESNT_EXIST)
         {
-
+            FingerprintHelper fingerprintHelper=new FingerprintHelper();
+            fingerprintHelper.generateKey();
             SharedPreferences.Editor editor=preferences.edit();
             editor.putString("entrepriseName","");
             editor.putString("entrepriseEmail","");

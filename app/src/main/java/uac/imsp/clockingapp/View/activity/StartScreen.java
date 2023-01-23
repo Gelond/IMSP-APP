@@ -91,8 +91,10 @@ implements View.OnClickListener  , IStartScreenView {
     }
     @Override
     public void onClick(@NonNull View v) {
-        if(v.getId()==R.id.start_screen_login_button)
+        if(v.getId()==R.id.start_screen_login_button) {
             startScreenPresenter.onLogin();
+            //startActivity(new Intent(this,MainActivity.class));
+        }
         else if(v.getId()==R.id.start_screen_clock_button)
             startScreenPresenter.onClocking();
 

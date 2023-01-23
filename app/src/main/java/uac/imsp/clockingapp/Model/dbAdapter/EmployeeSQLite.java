@@ -68,6 +68,7 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
     private static final String COL_USERNAME = "username";
     /**Represents the employee's password column **/
     public static final String COL_PASSWORD = "password";
+    public static final String COL_FINGERPRINT   = "empreinte";
 
     /**Represents the employee's function column **/
     private static final String COL_FUNCTION = "type";
@@ -118,6 +119,7 @@ public class EmployeeSQLite extends SQLiteOpenHelper {
             COL_ID_PLANNING_REF + " INTEGER  , " +
             COL_ID_SERVICE_REF + " INTEGER   ," +
             COL_STATUS + " TEXT DEFAULT 'Hors Service', " +
+            COL_FINGERPRINT+" BLOB UNIQUE,"+
             COL_ADD_DATE + " TEXT ," +
             " FOREIGN KEY(" + COL_ID_SERVICE_REF +
             " ) REFERENCES service(" + COL_ID_SERVICE + " )," +

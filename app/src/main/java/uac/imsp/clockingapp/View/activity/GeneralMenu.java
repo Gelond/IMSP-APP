@@ -23,6 +23,7 @@ import uac.imsp.clockingapp.View.util.IGeneralMenuView;
 
 public class GeneralMenu extends AppCompatActivity implements View.OnClickListener,
         IGeneralMenuView {
+    boolean useQRcode;
 
     IGeneralMenuController menuPresenter;
     private int currentUser;
@@ -31,7 +32,6 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         menuPresenter.onExit();
 
     }
@@ -40,6 +40,7 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
         SharedPreferences preferences= getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
         dark=preferences.getBoolean("dark",false);
+        useQRcode=preferences.getBoolean("useQRCode",true);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,8 +166,10 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClocking() {
 
-
-        startActivity(new Intent(this, ClockInOut.class));
+        if(useQRcode)
+            startActivity(new Intent(this, ClockInOut.class));
+        else
+            startActivity(new Intent(this, FingerprintAttendance.class));
 
     }
 
@@ -186,10 +189,7 @@ public class GeneralMenu extends AppCompatActivity implements View.OnClickListen
                 .setNegativeButton(getString(R.string.no), (dialog, which) -> dialog.cancel())
                 .setPositiveButton(getString(R.string.yes), (dialog, which) -> {
                     moveTaskToBack(true);
-                   // android.os.Process.killProcess(android.os.Process.myPid());
-                   // System.exit(0);
                     finishAffinity();
-
 
                 });
         AlertDialog alert = builder.create();

@@ -77,7 +77,7 @@ public class ClockInOut extends AppCompatActivity
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.clocking_text);
 
-        setContentView(useQRcode? R.layout.activity_scanner:R.layout.fingerprint_gesture);
+        setContentView( R.layout.activity_scanner);
         initViews();
         initialiseDetectorsAndSources(true);
 
@@ -207,7 +207,8 @@ public void retrieveSharedPreferences(){
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CAMERA_PERMISSION && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             startCamera();

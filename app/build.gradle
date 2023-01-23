@@ -140,7 +140,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'androidx.biometric:biometric:1.1.0'
     implementation 'androidx.core:core:1.9.0'
-    implementation 'androidx.bluetooth:bluetooth:1.1.0'
+    //implementation 'androidx.bluetooth:bluetooth:1.1.0'
 
 
 
